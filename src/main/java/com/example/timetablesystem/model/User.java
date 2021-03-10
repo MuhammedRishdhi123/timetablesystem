@@ -1,24 +1,50 @@
 package com.example.timetablesystem.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+import javax.persistence.*;
+import java.util.Set;
 import java.util.UUID;
 @Entity
+@Table(name="User",uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@JsonRootName(value = "User")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID userId;
-    private String name,email,curriculum,password,phone,batchCode;
+    private String name;
+    private String email;
+    @JsonIgnore
+    private String password;
+    private String phone;
+    @ManyToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JoinTable(
+            name="user_roles",
+            joinColumns = @JoinColumn(
+                    name="userId",referencedColumnName = "useruserId"),
+            inverseJoinColumns = @JoinColumn(
+                    name="roleId",referencedColumnName = "roleroleId"))
+    private Set<Role> roles;
 
-    public User(UUID userId, String name, String email, String curriculum, String password, String phone, String batchCode) {
+    @OneToOne(mappedBy = "User")
+    private Admin admin;
+
+    @OneToOne(mappedBy = "User")
+    private Student student;
+
+    @OneToOne(mappedBy = "User")
+    private Lecturer lecturer;
+
+    public User(UUID userId, String name, String email, String password, String phone) {
         this.userId = userId;
         this.name = name;
         this.email = email;
-        this.curriculum = curriculum;
         this.password = password;
         this.phone = phone;
-        this.batchCode = batchCode;
+    }
+
+    public User() {
+
     }
 
     public UUID getUserId() {
@@ -45,13 +71,6 @@ public class User {
         this.email = email;
     }
 
-    public String getCurriculum() {
-        return curriculum;
-    }
-
-    public void setCurriculum(String curriculum) {
-        this.curriculum = curriculum;
-    }
 
     public String getPassword() {
         return password;
@@ -69,11 +88,27 @@ public class User {
         this.phone = phone;
     }
 
-    public String getBatchCode() {
-        return batchCode;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setBatchCode(String batchCode) {
-        this.batchCode = batchCode;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", roles=" + roles +
+                ", admin=" + admin +
+                ", student=" + student +
+                ", lecturer=" + lecturer +
+                '}';
     }
 }

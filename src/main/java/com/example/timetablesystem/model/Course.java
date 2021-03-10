@@ -1,13 +1,33 @@
 package com.example.timetablesystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import org.springframework.boot.autoconfigure.web.WebProperties;
+
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
+@Table(name="Course")
+@JsonRootName(value = "Course")
 public class Course {
-    private int courseId,courseDuration;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int courseId;
     private String courseTitle;
+    private int courseDuration;
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "course")
+    private Set<Module> modules;
 
     public Course(int courseId, int courseDuration, String courseTitle) {
         this.courseId = courseId;
         this.courseDuration = courseDuration;
         this.courseTitle = courseTitle;
+    }
+
+    public Course() {
+
     }
 
     public int getCourseId() {
@@ -32,5 +52,15 @@ public class Course {
 
     public void setCourseTitle(String courseTitle) {
         this.courseTitle = courseTitle;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId=" + courseId +
+                ", courseTitle='" + courseTitle + '\'' +
+                ", courseDuration=" + courseDuration +
+                ", modules=" + modules +
+                '}';
     }
 }

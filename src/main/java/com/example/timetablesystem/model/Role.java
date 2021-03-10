@@ -1,12 +1,30 @@
 package com.example.timetablesystem.model;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="Role")
+@JsonRootName(value = "Role")
 public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int roleId;
     private String roleName;
 
     public Role(int roleId, String roleName) {
         this.roleId = roleId;
         this.roleName = roleName;
+    }
+
+    public Role() {
+
     }
 
     public int getRoleId() {
@@ -23,5 +41,13 @@ public class Role {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "roleId=" + roleId +
+                ", roleName='" + roleName + '\'' +
+                '}';
     }
 }

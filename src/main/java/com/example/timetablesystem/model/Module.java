@@ -1,13 +1,31 @@
 package com.example.timetablesystem.model;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Module")
+@JsonRootName(value = "Module")
 public class Module {
-    private int moduleId,moduleCredits;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int moduleId;
     private String moduleTitle;
+    private int moduleCredits;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "courseId")
+    private Course course;
 
     public Module(int moduleId, int moduleCredits, String moduleTitle) {
         this.moduleId = moduleId;
         this.moduleCredits = moduleCredits;
         this.moduleTitle = moduleTitle;
+    }
+
+    public Module() {
+
     }
 
     public int getModuleId() {
@@ -32,5 +50,15 @@ public class Module {
 
     public void setModuleTitle(String moduleTitle) {
         this.moduleTitle = moduleTitle;
+    }
+
+    @Override
+    public String toString() {
+        return "Module{" +
+                "moduleId=" + moduleId +
+                ", moduleTitle='" + moduleTitle + '\'' +
+                ", moduleCredits=" + moduleCredits +
+                ", course=" + course +
+                '}';
     }
 }
