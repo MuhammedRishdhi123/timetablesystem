@@ -1,4 +1,4 @@
-package com.example.timetablesystem.model;
+package com.example.timetablesystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 

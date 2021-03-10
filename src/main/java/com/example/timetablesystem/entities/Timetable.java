@@ -1,4 +1,4 @@
-package com.example.timetablesystem.model;
+package com.example.timetablesystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
@@ -15,10 +15,10 @@ public class Timetable {
     private String batchCode;
     private String courseTitle;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "Timetable")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "timetable")
     private Set<TimetableItem> timetableItems;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "Timetable")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "timetable")
     private Set<Student> students;
 
     public Timetable(int timetableId, String batchCode, String courseTitle) {

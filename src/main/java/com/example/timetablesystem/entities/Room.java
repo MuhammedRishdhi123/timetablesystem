@@ -1,4 +1,4 @@
-package com.example.timetablesystem.model;
+package com.example.timetablesystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
@@ -16,7 +16,7 @@ public class Room {
     private int seatingCapacity;
     private String status;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "Room")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "room")
     private Set<TimetableItem> timetableItems;
 
     public Room(int roomId, int seatingCapacity, String roomName,String status) {

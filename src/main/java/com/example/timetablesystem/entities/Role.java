@@ -1,10 +1,6 @@
-package com.example.timetablesystem.model;
+package com.example.timetablesystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 

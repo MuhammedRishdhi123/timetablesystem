@@ -1,8 +1,7 @@
-package com.example.timetablesystem.model;
+package com.example.timetablesystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import javax.persistence.*;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.example.timetablesystem.model;
+package com.example.timetablesystem.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
@@ -11,7 +11,7 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID userId;
+    private int userId;
     private String name;
     private String email;
     @JsonIgnore
@@ -21,21 +21,21 @@ public class User {
     @JoinTable(
             name="user_roles",
             joinColumns = @JoinColumn(
-                    name="userId",referencedColumnName = "useruserId"),
+                    name="userId",referencedColumnName = "userId"),
             inverseJoinColumns = @JoinColumn(
-                    name="roleId",referencedColumnName = "roleroleId"))
+                    name="roleId",referencedColumnName = "roleId"))
     private Set<Role> roles;
 
-    @OneToOne(mappedBy = "User")
+    @OneToOne(mappedBy = "user")
     private Admin admin;
 
-    @OneToOne(mappedBy = "User")
+    @OneToOne(mappedBy = "user")
     private Student student;
 
-    @OneToOne(mappedBy = "User")
+    @OneToOne(mappedBy = "user")
     private Lecturer lecturer;
 
-    public User(UUID userId, String name, String email, String password, String phone) {
+    public User(int userId, String name, String email, String password, String phone) {
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -47,11 +47,11 @@ public class User {
 
     }
 
-    public UUID getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(UUID userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

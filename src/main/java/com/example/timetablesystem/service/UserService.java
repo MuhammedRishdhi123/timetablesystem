@@ -1,6 +1,6 @@
 package com.example.timetablesystem.service;
-import com.example.timetablesystem.model.Role;
-import com.example.timetablesystem.model.User;
+import com.example.timetablesystem.entities.Role;
+import com.example.timetablesystem.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
