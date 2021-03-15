@@ -2,7 +2,9 @@ package com.example.timetablesystem.service;
 
 import com.example.timetablesystem.entities.Role;
 import com.example.timetablesystem.entities.User;
+import com.example.timetablesystem.entities.UserPrincipal;
 import com.example.timetablesystem.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserRepository userRepository;
 
 
@@ -62,13 +65,13 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        User user = userRepository.findByUserName(name);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findByUserEmail(email);
         if(user == null) {
             throw new UsernameNotFoundException("The email and password did not match!");
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(),mapRolesToAuthorities(user.getRoles()));
+        return new UserPrincipal(user);
     }
 
     @Override
@@ -88,5 +91,15 @@ public class UserServiceImpl implements UserService {
             email=principal.toString();
         }
         return userRepository.findByUserEmail(email);
+    }
+
+    @Override
+    public boolean checkEmail(String email) {
+        User user=userRepository.findByUserEmail(email);
+        if(user==null){
+            return false;
+        }
+        return true;
+
     }
 }

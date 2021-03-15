@@ -18,5 +18,5 @@ public interface UserService extends UserDetailsService {
     public User findUserByName(String name);
     Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles);
     public User loggedUser();
-
+    public boolean checkEmail(String email);
 }
