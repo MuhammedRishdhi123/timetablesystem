@@ -16,26 +16,17 @@ public class Room {
     private int seatingCapacity;
     private String status;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "room")
-    private Set<TimetableItem> timetableItems;
+    @OneToMany(mappedBy = "room")
+    private Set<Session> sessions;
 
-    public Room(int roomId, int seatingCapacity, String roomName,String status) {
+    public Room(int roomId, String roomName, int seatingCapacity, String status) {
         this.roomId = roomId;
-        this.seatingCapacity = seatingCapacity;
         this.roomName = roomName;
-        this.status=status;
+        this.seatingCapacity = seatingCapacity;
+        this.status = status;
     }
 
     public Room() {
-
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public int getRoomId() {
@@ -46,14 +37,6 @@ public class Room {
         this.roomId = roomId;
     }
 
-    public int getSeatingCapacity() {
-        return seatingCapacity;
-    }
-
-    public void setSeatingCapacity(int seatingCapacity) {
-        this.seatingCapacity = seatingCapacity;
-    }
-
     public String getRoomName() {
         return roomName;
     }
@@ -62,6 +45,32 @@ public class Room {
         this.roomName = roomName;
     }
 
+    public int getSeatingCapacity() {
+        return seatingCapacity;
+    }
+
+    public void setSeatingCapacity(int seatingCapacity) {
+        this.seatingCapacity = seatingCapacity;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Set<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(Set<Session> sessions) {
+        this.sessions = sessions;
+    }
+
+
+
     @Override
     public String toString() {
         return "Room{" +
@@ -69,7 +78,7 @@ public class Room {
                 ", roomName='" + roomName + '\'' +
                 ", seatingCapacity=" + seatingCapacity +
                 ", status='" + status + '\'' +
-                ", timetableItems=" + timetableItems +
+                ", sessions=" + sessions +
                 '}';
     }
 }

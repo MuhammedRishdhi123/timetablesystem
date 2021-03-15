@@ -53,6 +53,15 @@ public class Course {
         this.courseTitle = courseTitle;
     }
 
+    public String getModulesString() {
+        StringBuilder sb = new StringBuilder();
+        for (Module t : modules) {
+            sb.append(t.toString()).append(", ");
+        }
+
+        return sb.toString();
+    }
+
     @Override
     public String toString() {
         return "Course{" +

@@ -1,8 +1,10 @@
 package com.example.timetablesystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="Module")
@@ -18,6 +20,12 @@ public class Module {
     @JoinColumn(name = "courseId")
     private Course course;
 
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name="module_lecturer",joinColumns = @JoinColumn(name="moduleId"),inverseJoinColumns=@JoinColumn(name="lecturerId"))
+    private Set<Lecturer> lecturers;
+
+
     public Module(int moduleId, int moduleCredits, String moduleTitle) {
         this.moduleId = moduleId;
         this.moduleCredits = moduleCredits;
@@ -26,6 +34,22 @@ public class Module {
 
     public Module() {
 
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Set<Lecturer> getLecturers() {
+        return lecturers;
+    }
+
+    public void setLecturers(Set<Lecturer> lecturers) {
+        this.lecturers = lecturers;
     }
 
     public int getModuleId() {
@@ -50,6 +74,15 @@ public class Module {
 
     public void setModuleTitle(String moduleTitle) {
         this.moduleTitle = moduleTitle;
+    }
+
+    public String getLecturersString() {
+        StringBuilder sb = new StringBuilder();
+        for (Lecturer t : lecturers) {
+            sb.append(t.toString()).append(", ");
+        }
+
+        return sb.toString();
     }
 
     @Override
