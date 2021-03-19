@@ -1,0 +1,115 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Manage Batch</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/css/templatemo-grad-school.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.css}">
+    <link rel="stylesheet" th:href="@{/css/lightbox.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+<div sec:authorize="hasAuthority('Admin')">
+    <!--header-->
+    <header class="main-header clearfix" role="header">
+        <div class="logo">
+            <a href="#"><em>Protabler</em></a>
+        </div>
+        <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+        <nav id="menu" class="main-nav" role="navigation">
+            <ul class="main-menu">
+                <li><a href="#section1">Home</a></li>
+                <li class="has-submenu"><a href="#section2">Options</a>
+                    <ul class="sub-menu">
+                        <li><a href="#section2">My modules</a></li>
+                        <li><a href="#section3">My Faculty</a></li>
+                        <li><a href="#section3">Resources</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#section6">Contact</a></li>
+                <li><img th:src="@{/images/usericon.png}" id="profileImg1" class="rounded-circle" height="50" width="50"></li>
+                <li><span sec:authentication="principal.name"></span></li>
+                <li class="has-submenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false"></a>
+                    <ul class="sub-menu">
+
+                        <li class=""><a th:href="@{/user/profile}">Profile</a></li>
+                        <li><a href="/team">Help</a></li>
+                        <li><a th:href="@{/logout}" >Logout</a></li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div th:if="${param.success}">
+                    <div class="alert alert-success" role="alert">
+                        <h5 class="alert-heading">Batch added successfully !</h5>
+                    </div>
+                </div>
+                <div th:if="${param.deleted}">
+                    <div class="alert alert-danger" role="alert">
+                        <h5 class="alert-heading">Batch deleted successfully !</h5>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div><h2>Manage Batch</h2></div>
+                    <table class="table">
+                        <thead class=" text-primary">
+                        <th>Batch ID</th>
+                        <th>Title</th>
+
+                        </thead>
+                        <tbody>
+                        <tr th:each="batch : ${batches}">
+                            <td class="font-weight-medium" th:text="${batch.batchId}"></td>
+                            <td class="font-weight-medium" th:text="${batch.batchTitle}"></td>
+                            <td><a type="button" class="btn btn-info btn-rounded" th:href="@{/batch/deleteBatch/{id}(id=${batch.batchId})}">Delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <a type="submit" class="btn btn-primary btn-round" th:href="@{/batch/addBatch}">Add Batch</a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p><i class="fa fa-copyright"></i> Copyright 2020 by Grad School
+
+                        | Design: <a href="https://templatemo.com" rel="sponsored" target="_parent">TemplateMo</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/popper.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</div>
+</body>
+</html>
+
