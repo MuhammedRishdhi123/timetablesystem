@@ -79,7 +79,7 @@ public class Module {
     public String getLecturersString() {
         StringBuilder sb = new StringBuilder();
         for (Lecturer t : lecturers) {
-            sb.append(t.toString()).append(", ");
+            sb.append(t.getUser().getName()).append(", ");
         }
 
         return sb.toString();

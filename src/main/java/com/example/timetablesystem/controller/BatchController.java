@@ -18,30 +18,10 @@ public class BatchController {
     @Autowired
     private BatchService batchService;
 
-    @GetMapping("/addBatch")
-    public String getAddBatchPage()
-    {
-        return "addBatch";
-    }
 
-    @PostMapping("/saveBatch")
-    public String saveBatch(@ModelAttribute("batch") BatchRegistration batch)
-    {
-        batchService.saveBatch(batch);
-        return "redirect:/batch/allbatches?success";
-    }
-    @GetMapping("/allbatches")
-    public String getAllBatches(Model model)
-    {
-        List<Batch> batchList=batchService.getAllBatches();
-        model.addAttribute("batches",batchList);
-        return "manageBatch";
-    }
 
-    @GetMapping("/deleteBatch/{id}")
-    public String deleteBatch(@PathVariable(value = "id")int id, Model model)
-    {
-        batchService.deleteBatch(batchService.getBatchById(id));
-        return "redirect:/batch/allbatches?deleted";
-    }
+
+
+
+
 }

@@ -43,27 +43,6 @@ public class UserController {
         return "registerStudent";
     }
 
-    @GetMapping("/registerAdmin")
-    public String getAdminRegisterPage(Model model){
-        model.addAttribute("admin",new AdminRegistration());
-        return "registerAdmin";
-    }
-
-    @PostMapping("/saveAdmin")
-    public String RegisterAdmin(@ModelAttribute("admin") AdminRegistration adminRegistration)
-    {
-
-        boolean emailExist=userService.checkEmail(adminRegistration.getEmail());
-        if(emailExist){
-            return "redirect:/user/registerAdmin?InvalidEmail";
-        }
-        else if(!emailExist){
-            adminService.saveAdmin(adminRegistration);
-            return "redirect:/user/registerAdmin?Success";
-
-        }
-       return null;
-    }
 
 
     @PostMapping("/saveStudent")
@@ -72,11 +51,11 @@ public class UserController {
 
         boolean emailExist=userService.checkEmail(studentRegistration.getEmail());
         if(emailExist){
-            return "redirect:/user/registerStudent?InvalidEmail";
+            return "redirect:/user/registerStudent?invalidEmail";
         }
         else if(!emailExist){
             studentService.saveStudent(studentRegistration);
-            return "redirect:/user/registerStudent?Success";
+            return "redirect:/user/registerStudent?success";
 
         }
         return null;

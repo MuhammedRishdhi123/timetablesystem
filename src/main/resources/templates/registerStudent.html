@@ -41,7 +41,7 @@
     </nav>
 </header>
 <body>
-<!--<div sec:authorize="hasAuthority('Admin')">-->
+
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
@@ -56,12 +56,12 @@
                         <span class="fa fa-user-o"></span>
                     </div>
                     <h3 class="text-center mb-4">Dont have an account?</h3>
-                    <div th:if="${param.Success}">
+                    <div th:if="${param.success}">
                         <div class="alert alert-success" role="alert">
                             <h5 class="alert-heading">Registration Successful !</h5>
                         </div>
                     </div>
-                    <div th:if="${param.InvalidEmail}">
+                    <div th:if="${param.invalidEmail}">
                         <div class="alert alert-danger" role="alert">
                             <h5 class="alert-heading">Email already exists !</h5>
                         </div>
@@ -103,7 +103,7 @@
         </div>
     </div>
 </section>
-<!--</div>-->
+
 <footer>
     <div class="container">
         <div class="row">

@@ -12,7 +12,7 @@ public interface UserService extends UserDetailsService {
     public User addUser(User user);
     public User findUserById(int userId);
     public Set<User> getAllUsers();
-    public Boolean updateUser(User user);
+    public boolean updateUser(User user);
     public void deleteUser(int userId);
     public User findUserByEmail(String email);
     public User findUserByName(String name);

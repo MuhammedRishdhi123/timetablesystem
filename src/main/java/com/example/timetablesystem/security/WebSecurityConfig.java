@@ -46,38 +46,38 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http)throws Exception{
-//        http.authorizeRequests().antMatchers(
-//                "/user/registerStudent",
-//                "/user/registerAdmin",
-//                "/user/registerStudent?Success",
-//                "/user/registerAdmin?Success",
-//                "/user/saveStudent",
-//                "/user/saveAdmin",
-//                "/js/**",
-//                "/css/**",
-//                "/images/**",
-//                "/fonts/**",
-//                "/jquery/**",
-//                "/bootstrap/**",
-//                "/api/admin/**",
-//                "/api/user/**",
-//                "/api/student/**",
-//                "/api/lecturer/**"
-//        )
-//                .permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .usernameParameter("email")
-//                .permitAll()
-//                .and()
-//                .logout()
-//                .invalidateHttpSession(true)
-//                .clearAuthentication(true)
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                .logoutSuccessUrl("/login?logout")
-//                .permitAll();
+        http.authorizeRequests().antMatchers(
+                "/user/registerStudent",
+                "/admin/addAdmin",
+                "/user/registerStudent?Success",
+                "/admin/addAdmin?Success",
+                "/user/saveStudent",
+                "/admin/saveAdmin",
+                "/js/**",
+                "/css/**",
+                "/images/**",
+                "/fonts/**",
+                "/jquery/**",
+                "/bootstrap/**",
+                "/api/admin/**",
+                "/api/user/**",
+                "/api/student/**",
+                "/api/lecturer/**"
+        )
+                .permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .usernameParameter("email")
+                .permitAll()
+                .and()
+                .logout()
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout")
+                .permitAll();
 
         http.csrf().disable();
     }

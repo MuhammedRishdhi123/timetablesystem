@@ -68,7 +68,6 @@ public class Course {
                 "courseId=" + courseId +
                 ", courseTitle='" + courseTitle + '\'' +
                 ", courseDuration=" + courseDuration +
-                ", modules=" + modules +
                 '}';
     }
 }

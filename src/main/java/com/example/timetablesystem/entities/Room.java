@@ -69,6 +69,14 @@ public class Room {
         this.sessions = sessions;
     }
 
+    public String getSessionsString() {
+        StringBuilder sb = new StringBuilder();
+        for (Session s : sessions) {
+            sb.append(s.toString()).append(", ");
+        }
+
+        return sb.toString();
+    }
 
 
     @Override
@@ -78,7 +86,6 @@ public class Room {
                 ", roomName='" + roomName + '\'' +
                 ", seatingCapacity=" + seatingCapacity +
                 ", status='" + status + '\'' +
-                ", sessions=" + sessions +
                 '}';
     }
 }

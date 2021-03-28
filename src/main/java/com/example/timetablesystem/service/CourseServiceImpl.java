@@ -36,4 +36,15 @@ public class CourseServiceImpl implements CourseService{
     public Course getCourseById(int courseId) {
         return courseRepository.getOne(courseId);
     }
+
+    @Override
+    public boolean updateCourse(Course course) {
+        Course newCourse=courseRepository.getOne(course.getCourseId());
+        if(newCourse != null)
+        {
+            courseRepository.save(newCourse);
+            return true;
+        }
+        return false;
+    }
 }

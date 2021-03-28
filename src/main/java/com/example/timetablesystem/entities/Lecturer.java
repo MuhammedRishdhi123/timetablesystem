@@ -51,4 +51,15 @@ public class Lecturer {
     public void setModules(Set<Module> modules) {
         this.modules = modules;
     }
+
+    public String getModulesString() {
+        StringBuilder sb = new StringBuilder();
+        for (Module t : modules) {
+            sb.append(t.getModuleTitle()).append(", \n");
+        }
+
+        return sb.toString();
+    }
+
+
 }

@@ -15,42 +15,15 @@ import java.util.List;
 @RequestMapping("/course")
 public class CourseController {
     @Autowired
-    private CourseServiceImpl courseService;
+    private CourseService courseService;
 
-    @GetMapping("/addCourse")
-    public String getAddCoursePage()
-    {
-        return "addCourse";
-    }
 
-    @PostMapping("/saveCourse")
-    public String saveCourse(@ModelAttribute("course") CourseRegistration course)
-    {
-        courseService.saveCourse(course);
-        return "redirect:/course/allcourses?success";
-    }
 
-    @GetMapping("/allcourses")
-    public String getAllCourse(Model model)
-    {
-        List<Course> courseList=courseService.getAllCourses();
-        model.addAttribute("courses",courseList);
-        return "manageCourse";
-    }
 
-    @GetMapping("/editCourse/{id}")
-    public String editCourse(@PathVariable(value = "id")int id,Model model)
-    {
-        model.addAttribute("course",courseService.getCourseById(id));
-        return "editCourse";
-    }
 
-    @GetMapping("/deleteCourse/{id}")
-    public String deleteCourse(@PathVariable(value = "id")int id,Model model)
-    {
-        courseService.deleteCourse(courseService.getCourseById(id));
-        return "redirect:/course/allcourses?deleted";
-    }
+
+
+
 
 
 }

@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean updateUser(User user) {
+    public boolean updateUser(User user) {
         User isExist=userRepository.findByUserEmail(user.getEmail());
         if(isExist != null) {
             userRepository.save(user);

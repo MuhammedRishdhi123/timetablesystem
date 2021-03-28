@@ -1,6 +1,6 @@
 package com.example.timetablesystem.entities.enums;
 
-public enum day {
+public enum Day {
     MONDAY(1, "Monday"),
     TUESDAY(2, "Tuesday"),
     WEDNESDAY(3, "Wednesday"),
@@ -10,7 +10,7 @@ public enum day {
     private int day;
     private String dayName;
 
-    day(int day, String dayName) {
+    Day(int day, String dayName) {
         this.day = day;
         this.dayName = dayName;
     }

@@ -1,10 +1,9 @@
 package com.example.timetablesystem.entities;
 
-import com.example.timetablesystem.entities.enums.day;
-import com.example.timetablesystem.entities.enums.lectureTime;
-import com.example.timetablesystem.entities.enums.lectureType;
+import com.example.timetablesystem.entities.enums.Day;
+import com.example.timetablesystem.entities.enums.LectureTime;
+import com.example.timetablesystem.entities.enums.LectureType;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -17,28 +16,30 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sessionId;
 
-    @ManyToMany
-    @JoinTable(name = "batch_session",joinColumns = @JoinColumn(name="sessionId"),inverseJoinColumns = @JoinColumn(name = "batchId"))
-    private Set<Batch> batches;
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "batchId")
+    private Batch batch;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JoinColumn(name = "roomId")
     private Room room;
 
-    private com.example.timetablesystem.entities.enums.day day;
+    private Day day;
 
-    private com.example.timetablesystem.entities.enums.lectureType lectureType;
+    private LectureType lectureType;
 
-    private com.example.timetablesystem.entities.enums.lectureTime lectureTime;
+    private LectureTime lectureTime;
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinTable(name = "lecturer_session",joinColumns = @JoinColumn(name = "sessionId"),inverseJoinColumns = @JoinColumn(name="lecturerId"))
-    private Set<Lecturer> lecturers;
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JoinColumn(name = "lecturerId")
+    private Lecturer lecturer;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JoinColumn(name = "moduleId")
     private Module module;
 
-    public Session(Set<Batch> batches, com.example.timetablesystem.entities.enums.day day, com.example.timetablesystem.entities.enums.lectureType lectureType, com.example.timetablesystem.entities.enums.lectureTime lectureTime) {
-        this.batches = batches;
+    public Session(Batch batch, Day day, LectureType lectureType, LectureTime lectureTime) {
+        this.batch = batch;
         this.day = day;
         this.lectureType = lectureType;
         this.lectureTime = lectureTime;
@@ -55,35 +56,35 @@ public class Session {
         this.sessionId = sessionId;
     }
 
-    public Set<Batch> getBatches() {
-        return batches;
+    public Batch getBatch() {
+        return batch;
     }
 
-    public void setBatches(Set<Batch> batches) {
-        this.batches = batches;
+    public void setBatch(Batch batch) {
+        this.batch = batch;
     }
 
-    public com.example.timetablesystem.entities.enums.day getDay() {
+    public Day getDay() {
         return day;
     }
 
-    public void setDay(com.example.timetablesystem.entities.enums.day day) {
+    public void setDay(Day day) {
         this.day = day;
     }
 
-    public com.example.timetablesystem.entities.enums.lectureType getLectureType() {
+    public LectureType getLectureType() {
         return lectureType;
     }
 
-    public void setLectureType(com.example.timetablesystem.entities.enums.lectureType lectureType) {
+    public void setLectureType(LectureType lectureType) {
         this.lectureType = lectureType;
     }
 
-    public com.example.timetablesystem.entities.enums.lectureTime getLectureTime() {
+    public LectureTime getLectureTime() {
         return lectureTime;
     }
 
-    public void setLectureTime(com.example.timetablesystem.entities.enums.lectureTime lectureTime) {
+    public void setLectureTime(LectureTime lectureTime) {
         this.lectureTime = lectureTime;
     }
 
@@ -95,12 +96,12 @@ public class Session {
         this.room = room;
     }
 
-    public Set<Lecturer> getLecturers() {
-        return lecturers;
+    public Lecturer getLecturer() {
+        return lecturer;
     }
 
-    public void setLecturers(Set<Lecturer> lecturers) {
-        this.lecturers = lecturers;
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
     }
 
     public Module getModule() {
@@ -111,23 +112,18 @@ public class Session {
         this.module = module;
     }
 
-    public String getLecturersString() {
-        StringBuilder sb = new StringBuilder();
-        for (Lecturer t : lecturers) {
-            sb.append(t.toString()).append(", ");
-        }
 
-        return sb.toString();
-    }
-
-    @Override
-    public String toString() {
-        return "Session{" +
-                "sessionId=" + sessionId +
-                ", batches=" + batches +
-                ", day=" + day +
-                ", lectureType=" + lectureType +
-                ", lectureTime=" + lectureTime +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Session{" +
+//                "sessionId=" + sessionId +
+//                ", batch=" + batch.getBatchTitle() +
+//                ", room=" + room.getRoomName() +
+//                ", day=" + day.getDayName() +
+//                ", lectureType=" + lectureType.getLectureTypeName() +
+//                ", lectureTime=" + lectureTime.getLectureTimeName() +
+//                ", lecturer=" + lecturer.getUser().getName() +
+//                ", module=" + module.getModuleTitle() +
+//                '}';
+//    }
 }

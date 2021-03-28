@@ -11,4 +11,5 @@ public interface LecturerService {
     public Lecturer saveLecturer(LecturerRegistration lecturerRegistration);
     public List<Lecturer> getAllLecturer();
     public Lecturer findByUserId(int userId);
+    public void delete(Lecturer lecturer);
 }

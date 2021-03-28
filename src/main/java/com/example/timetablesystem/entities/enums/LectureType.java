@@ -1,13 +1,13 @@
 package com.example.timetablesystem.entities.enums;
 
-public enum lectureType {
+public enum LectureType {
     LECTURE(1,"Lecture"),
     LABORATORY(2,"Lab");
 
     private int lectureType;
     private String lectureTypeName;
 
-    lectureType(int lectureType, String lectureTypeName) {
+    LectureType(int lectureType, String lectureTypeName) {
         this.lectureType = lectureType;
         this.lectureTypeName = lectureTypeName;
     }

@@ -1,9 +1,14 @@
 package com.example.timetablesystem.RestEntities;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
-
+@Data
+@ToString
 @JsonRootName("loginUser")
 public class RestLogin {
     private String email;

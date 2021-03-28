@@ -43,4 +43,9 @@ public class LecturerServiceImpl implements LecturerService {
     public Lecturer findByUserId(int userId) {
         return lecturerRepository.findByUserId(userId);
     }
+
+    @Override
+    public void delete(Lecturer lecturer) {
+        lecturerRepository.delete(lecturer);
+    }
 }

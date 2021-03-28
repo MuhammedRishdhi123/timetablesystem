@@ -1,6 +1,6 @@
 package com.example.timetablesystem.entities.enums;
 
-public enum lectureTime {
+public enum LectureTime {
 
     FIRST(1,"1 (8:30 - 10:00)"),
     SECOND(2, "2 (10:15 - 12:30)"),
@@ -11,7 +11,7 @@ public enum lectureTime {
     private int lectureTime;
     private String lectureTimeName;
 
-    lectureTime(int lectureTime, String lectureTimeName) {
+    LectureTime(int lectureTime, String lectureTimeName) {
         this.lectureTime = lectureTime;
         this.lectureTimeName = lectureTimeName;
     }
