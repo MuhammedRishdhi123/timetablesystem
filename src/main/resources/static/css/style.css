@@ -8332,3 +8332,7 @@ h1, h2, h3, h4, h5,
     @media (max-width: 767.98px) {
       .form-group .submit {
         top: 0; } }
+
+.timetable{width:100%;}
+.timetable th{text-align: center;}
+.timetable td{text-align: center;}

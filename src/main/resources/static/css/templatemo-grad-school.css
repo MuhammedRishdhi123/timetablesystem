@@ -170,7 +170,7 @@ a.menu-link { display: none; }
     position: fixed;
     z-index: 12;
     width: 100%;
-    top: 0;
+    top: -10px;
 }
 
 .main-header .logo {
