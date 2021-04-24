@@ -12,8 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/admin")
@@ -32,6 +33,8 @@ public class AdminController {
     private SessionService sessionService;
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private RoomService roomService;
     @Autowired
     private ModuleService moduleService;
     @Autowired
@@ -67,6 +70,15 @@ public class AdminController {
 
     }
 
+    @GetMapping("/manageRooms")
+    public String manageRooms(Model model)
+    {
+        List<Room> roomList=roomService.getAllRooms();
+        model.addAttribute("rooms",roomList);
+        return "manageRoom";
+
+    }
+
     @GetMapping("/manageBatches")
     public String manageBatches(Model model)
     {
@@ -98,27 +110,34 @@ public class AdminController {
     @GetMapping("/manageTimetable")
     public String manageTimetable(Model model)
     {
-        List<Session> sessionList= sessionService.getAllSessions();
+        List<Batch> batchList = batchService.getAllBatches();
         Session searchSession=new Session();
-        model.addAttribute("sessionBatches",sessionList);
+        model.addAttribute("sessionBatches",batchList);
         model.addAttribute("searchSession",searchSession);
         return "manageTimetable";
     }
 
+
     @GetMapping("/searchTimetable")
-    public String searchTimetable(@ModelAttribute("searchSession")Session session,Model model)
+    public String searchTimetable(@RequestParam(name="batchId")int batchId,Model model)
     {
-        List<Session> allSessionList= sessionService.getAllSessions();
-        List<Session> sessionList=sessionService.getSessionsByBatchId(session.getBatch().getBatchId());
+        List<Session> sessionList= sessionService.getSessionsByBatchId(batchId);
+        Collections.sort(sessionList, new Comparator<Session>() {
+            @Override
+            public int compare(Session o1, Session o2) {
+                if (o1.getDay() == o2.getDay()) {
+                    return o1.getLectureTime().compareTo(o2.getLectureTime());
+                } else {
+                    return o1.getDay().compareTo(o2.getDay());
+                }
+            }
+        });
+        List<Batch> batchList= batchService.getAllBatches();
         if(sessionList.size() != 0)
         {
-
             model.addAttribute("sessions",sessionList);
-            model.addAttribute("daysOfWeek", Day.values());
-            model.addAttribute("lectureTimes", LectureTime.values());
-            model.addAttribute("lectureTypes", LectureType.values());
-            model.addAttribute("sessionBatches",allSessionList);
-            model.addAttribute("sessionBatchTitle",session.getBatch().getBatchTitle());
+            model.addAttribute("sessionBatches",batchList);
+            model.addAttribute("sessionBatchTitle",batchService.getBatchById(batchId).getBatchTitle());
             return "manageTimetable";
         }
         return "redirect:/admin/manageTimetable?noTimetablesFound";
@@ -152,10 +171,24 @@ public class AdminController {
         return "addModule";
     }
 
+    @GetMapping("/addRoom")
+    public String getAddRoomPage(Model model)
+    {
+        return "addRoom";
+    }
+
     @GetMapping("/addSession")
     public String getAddSessionPage(Model model)
     {
+        Session session=new Session();
+        model.addAttribute("session",session);
         model.addAttribute("modules",moduleService.getAllModules());
+        model.addAttribute("lecturers",lecturerService.getAllLecturer());
+        model.addAttribute("daysOfWeek", Day.values());
+        model.addAttribute("lectureTimes", LectureTime.values());
+        model.addAttribute("lectureTypes", LectureType.values());
+        model.addAttribute("batches",batchService.getAllBatches());
+        model.addAttribute("rooms",roomService.getAllRooms());
         return "addSession";
     }
 
@@ -179,6 +212,17 @@ public class AdminController {
            courseService.deleteCourse(course);
        }
         return "redirect:/admin/manageCourse?deleted";
+    }
+
+    @GetMapping("/deleteRoom/{roomId}")
+    public String deleteRoom(@PathVariable(value ="roomId") int roomId)
+    {
+        Room room=roomService.getRoomById(roomId);
+        if(room != null)
+        {
+            roomService.deleteRoom(room);
+        }
+        return "redirect:/admin/manageRooms?deleted";
     }
 
     @GetMapping("/deleteBatch/{id}")
@@ -244,6 +288,14 @@ public class AdminController {
         User user =userService.findUserById(userId);
         model.addAttribute("user",user);
         return "viewLecturer";
+    }
+
+    @GetMapping("/editRoom/{roomId}")
+    public String editRoom(@PathVariable(value = "roomId")int roomId,Model model)
+    {
+        Room room =roomService.getRoomById(roomId);
+        model.addAttribute("room",room);
+        return "viewRoom";
     }
 
     @PostMapping("/updateStudent")
@@ -322,6 +374,29 @@ public class AdminController {
     }
 
 
+    @PostMapping("/updateRoom")
+    public String updateRoom(@ModelAttribute("room")Room room)
+    {
+        Room newRoom=roomService.getRoomById(room.getRoomId());
+        if(newRoom != null)
+        {
+            newRoom.setRoomName(room.getRoomName());
+            newRoom.setSeatingCapacity(room.getSeatingCapacity());
+            newRoom.setStatus(room.getStatus());
+            boolean saved=roomService.updateRoom(newRoom);
+            if(saved)
+            {
+                return "redirect:/admin/editRoom/"+newRoom.getRoomId()+"?updated";
+            }
+            else
+            {
+                return "redirect:/admin/editRoom/"+newRoom.getRoomId()+"?failed";
+            }
+        }
+        return "redirect:/admin/editRoom/"+newRoom.getRoomId()+"?failed";
+    }
+
+
     @PostMapping("/updateModule")
     public String updateModule(@ModelAttribute("Module")Module module)
     {
@@ -354,7 +429,14 @@ public class AdminController {
     public String saveCourse(@ModelAttribute("course") CourseRegistration course)
     {
         courseService.saveCourse(course);
-        return "redirect:/admin/manageCourse?success";
+        return "redirect:/admin/manageCourses?success";
+    }
+
+    @PostMapping("/saveRoom")
+    public String saveRoom(@ModelAttribute("room") RoomRegistration room)
+    {
+        roomService.saveRoom(room);
+        return "redirect:/admin/manageRooms?success";
     }
 
     @PostMapping("/saveBatch")
@@ -369,6 +451,13 @@ public class AdminController {
     {
         moduleService.saveModule(moduleRegistration);
         return "redirect:/admin/manageModules?success";
+    }
+
+    @PostMapping("/saveSession")
+    public String saveSession(@ModelAttribute("session") Session session)
+    {
+        sessionService.saveSession(session);
+        return "redirect:/admin/manageTimetable?success";
     }
 
     @PostMapping("/saveLecturer")

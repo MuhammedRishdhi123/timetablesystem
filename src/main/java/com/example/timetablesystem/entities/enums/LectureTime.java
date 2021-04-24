@@ -1,6 +1,6 @@
 package com.example.timetablesystem.entities.enums;
 
-public enum LectureTime {
+public enum LectureTime{
 
     FIRST(1,"1 (8:30 - 10:00)"),
     SECOND(2, "2 (10:15 - 12:30)"),

@@ -1,6 +1,6 @@
 package com.example.timetablesystem.entities.enums;
 
-public enum Day {
+public enum Day{
     MONDAY(1, "Monday"),
     TUESDAY(2, "Tuesday"),
     WEDNESDAY(3, "Wednesday"),

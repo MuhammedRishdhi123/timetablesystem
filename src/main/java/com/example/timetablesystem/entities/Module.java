@@ -20,6 +20,11 @@ public class Module {
     @JoinColumn(name = "courseId")
     private Course course;
 
+    @OneToMany(mappedBy = "module")
+    private Set<Session> sessions;
+
+
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="module_lecturer",joinColumns = @JoinColumn(name="moduleId"),inverseJoinColumns=@JoinColumn(name="lecturerId"))

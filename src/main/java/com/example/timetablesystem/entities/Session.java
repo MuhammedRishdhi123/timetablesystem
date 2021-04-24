@@ -24,14 +24,17 @@ public class Session {
     @JoinColumn(name = "roomId")
     private Room room;
 
+    @Enumerated(EnumType.STRING)
     private Day day;
 
+    @Enumerated(EnumType.STRING)
     private LectureType lectureType;
 
+    @Enumerated(EnumType.STRING)
     private LectureTime lectureTime;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinColumn(name = "lecturerId")
+    @JoinTable(name = "session_lecturer",joinColumns = @JoinColumn(name = "sessionId"),inverseJoinColumns = @JoinColumn(name = "lecturerId"))
     private Lecturer lecturer;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
@@ -112,18 +115,17 @@ public class Session {
         this.module = module;
     }
 
-
-//    @Override
-//    public String toString() {
-//        return "Session{" +
-//                "sessionId=" + sessionId +
-//                ", batch=" + batch.getBatchTitle() +
-//                ", room=" + room.getRoomName() +
-//                ", day=" + day.getDayName() +
-//                ", lectureType=" + lectureType.getLectureTypeName() +
-//                ", lectureTime=" + lectureTime.getLectureTimeName() +
-//                ", lecturer=" + lecturer.getUser().getName() +
-//                ", module=" + module.getModuleTitle() +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Session{" +
+                "sessionId=" + sessionId +
+                ", batch=" + batch +
+                ", room=" + room +
+                ", day=" + day +
+                ", lectureType=" + lectureType +
+                ", lectureTime=" + lectureTime +
+                ", lecturer=" + lecturer +
+                ", module=" + module +
+                '}';
+    }
 }

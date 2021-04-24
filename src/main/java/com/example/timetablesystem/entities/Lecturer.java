@@ -21,6 +21,10 @@ public class Lecturer {
     @JoinTable(name="module_lecturer",joinColumns = @JoinColumn(name = "lecturerId"),inverseJoinColumns = @JoinColumn(name = "moduleId"))
     private Set<Module> modules;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "session_lecturer",joinColumns = @JoinColumn(name = "lecturerId"),inverseJoinColumns = @JoinColumn(name = "sessionId"))
+    private Set<Session> sessions;
+
     public Lecturer(int lecturerId) {
         this.lecturerId = lecturerId;
     }
@@ -50,6 +54,14 @@ public class Lecturer {
 
     public void setModules(Set<Module> modules) {
         this.modules = modules;
+    }
+
+    public Set<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(Set<Session> sessions) {
+        this.sessions = sessions;
     }
 
     public String getModulesString() {

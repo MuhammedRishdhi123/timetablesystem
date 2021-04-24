@@ -60,9 +60,70 @@
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
-            <table class="timetable">
+            <div class="table-responsive" th:if="${sessions != null}">
+                <h3 align="center"><i class="fa fa-angle-right"></i> Timetable for batch: <span
+                        th:text="${sessionBatchTitle}"/></h3>
+                <table class="table table-bordered table-striped table-hover table-responsive mTable">
+                    <thead>
+                    <tr class="success">
+                        <th>DAY</th>
+                        <th>TIME</th>
+                        <th>CLASS</th>
+                        <th>LECTURER</th>
+                        <th>BATCH</th>
+                        <th>MODULE</th>
+                        <th>TYPE</th>
 
-            </table>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                    <tr th:each="s:${sessions}">
+
+
+                        <td class="tr-border" style="text-align: center"><span
+                                th:text="${s.day.name()}"></span>
+                        </td>
+
+
+                        <td><span
+                                th:text="${s.lectureTime.lectureTimeName}"></span>
+                        </td>
+
+
+                        <td style="text-align: center"><span
+                                th:text="${s.room.roomName}"></span>
+                        </td>
+
+
+                        <td style="text-align: center"><span
+                                th:text="${s.lecturer.user.name}"></span>
+                        </td>
+
+
+                        <td style="text-align: center"><span
+                                th:text="${s.batch.batchTitle}"></span>
+                        </td>
+
+
+                        <td style="text-align: center"><span
+                                th:text="${s.module.moduleTitle}"></span>
+                        </td>
+
+
+                        <td style="text-align: center"><span
+                                th:text="${s.lectureType.lectureTypeName}"></span>
+                        </td>
+
+
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
         </div>
 
     </div>
