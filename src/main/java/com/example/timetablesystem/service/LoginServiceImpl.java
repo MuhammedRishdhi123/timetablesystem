@@ -1,9 +1,8 @@
 package com.example.timetablesystem.service;
 
-import com.example.timetablesystem.RestEntities.RestLogin;
+import com.example.timetablesystem.dto.RestLogin;
 import com.example.timetablesystem.entities.Role;
 import com.example.timetablesystem.entities.User;
-import com.example.timetablesystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

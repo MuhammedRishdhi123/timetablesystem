@@ -1,4 +1,4 @@
-package com.example.timetablesystem.RestEntities;
+package com.example.timetablesystem.dto;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 import lombok.AllArgsConstructor;

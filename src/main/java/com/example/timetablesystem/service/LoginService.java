@@ -1,7 +1,7 @@
 package com.example.timetablesystem.service;
 
 
-import com.example.timetablesystem.RestEntities.RestLogin;
+import com.example.timetablesystem.dto.RestLogin;
 import com.example.timetablesystem.entities.Role;
 import org.springframework.security.core.GrantedAuthority;
 
