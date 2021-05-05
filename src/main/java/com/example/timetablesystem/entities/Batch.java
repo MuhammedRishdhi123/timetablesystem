@@ -1,5 +1,6 @@
 package com.example.timetablesystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
@@ -15,13 +16,27 @@ public class Batch {
 
     private String batchTitle;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "batch")
     private Set<Student> students;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "batch")
+    private Set<Session> sessions;
+
+    public Set<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(Set<Session> sessions) {
+        this.sessions = sessions;
+    }
 
     public Batch(int batchId, String batchTitle) {
         this.batchId = batchId;
         this.batchTitle = batchTitle;
     }
+
 
     public Batch() {
     }

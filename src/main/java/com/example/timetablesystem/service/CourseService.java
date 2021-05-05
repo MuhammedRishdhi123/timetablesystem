@@ -11,5 +11,6 @@ public interface CourseService {
     public List<Course> getAllCourses();
     public void deleteCourse(Course course);
     public Course getCourseById(int courseId);
+    public Course getCourseByTitle(String title);
     public boolean updateCourse(Course course);
 }

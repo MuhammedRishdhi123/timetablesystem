@@ -33,6 +33,11 @@ public class BatchServiceImpl implements BatchService{
     }
 
     @Override
+    public Batch getBatchByTitle(String title) {
+        return batchRepository.findByBatchTitle(title);
+    }
+
+    @Override
     public Batch getBatchById(int batchId) {
         return (Batch) batchRepository.getOne(batchId);
     }

@@ -15,6 +15,7 @@ public class Course {
     private int courseId;
     private String courseTitle;
     private int courseDuration;
+
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "course")
     private Set<Module> modules;
@@ -51,6 +52,14 @@ public class Course {
 
     public void setCourseTitle(String courseTitle) {
         this.courseTitle = courseTitle;
+    }
+
+    public Set<Module> getModules() {
+        return modules;
+    }
+
+    public void setModules(Set<Module> modules) {
+        this.modules = modules;
     }
 
     public String getModulesString() {

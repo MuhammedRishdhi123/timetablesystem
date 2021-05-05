@@ -1,5 +1,6 @@
 package com.example.timetablesystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
@@ -13,16 +14,19 @@ public class Lecturer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int lecturerId;
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId")
     private User user;
 
+
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="module_lecturer",joinColumns = @JoinColumn(name = "lecturerId"),inverseJoinColumns = @JoinColumn(name = "moduleId"))
     private Set<Module> modules;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "session_lecturer",joinColumns = @JoinColumn(name = "lecturerId"),inverseJoinColumns = @JoinColumn(name = "sessionId"))
+    @JsonIgnore
+    @OneToMany(mappedBy = "lecturer")
     private Set<Session> sessions;
 
     public Lecturer(int lecturerId) {

@@ -2,9 +2,14 @@ package com.example.timetablesystem.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
+
 
 @Entity
 @Table(name="Module")
@@ -16,16 +21,17 @@ public class Module {
     private String moduleTitle;
     private int moduleCredits;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "courseId")
     private Course course;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "module")
     private Set<Session> sessions;
 
 
-
-
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="module_lecturer",joinColumns = @JoinColumn(name="moduleId"),inverseJoinColumns=@JoinColumn(name="lecturerId"))
     private Set<Lecturer> lecturers;
@@ -81,6 +87,7 @@ public class Module {
         this.moduleTitle = moduleTitle;
     }
 
+    @JsonIgnore
     public String getLecturersString() {
         StringBuilder sb = new StringBuilder();
         for (Lecturer t : lecturers) {

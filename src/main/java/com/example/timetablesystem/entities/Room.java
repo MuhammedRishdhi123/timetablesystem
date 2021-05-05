@@ -1,5 +1,6 @@
 package com.example.timetablesystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Room {
     private int seatingCapacity;
     private String status;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "room")
     private Set<Session> sessions;
 

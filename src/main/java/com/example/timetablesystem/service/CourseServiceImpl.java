@@ -38,6 +38,11 @@ public class CourseServiceImpl implements CourseService{
     }
 
     @Override
+    public Course getCourseByTitle(String title) {
+        return courseRepository.findByCourseTitle(title);
+    }
+
+    @Override
     public boolean updateCourse(Course course) {
         Course newCourse=courseRepository.getOne(course.getCourseId());
         if(newCourse != null)

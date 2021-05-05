@@ -11,5 +11,6 @@ public interface BatchService {
     public Batch saveBatch(BatchRegistration batch);
     public List<Batch> getAllBatches();
     public void deleteBatch(Batch batch);
+    public Batch getBatchByTitle(String title);
     public Batch getBatchById(int batchId);
 }

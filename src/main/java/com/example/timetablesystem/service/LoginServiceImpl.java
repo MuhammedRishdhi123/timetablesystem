@@ -19,8 +19,6 @@ import java.util.stream.Collectors;
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired
-    private UserRepository userRepository;
-    @Autowired
     private UserService userService;
     @Autowired
     private BCryptPasswordEncoder encoder;
@@ -43,7 +41,7 @@ public class LoginServiceImpl implements LoginService {
            User checkUser=userService.findUserByEmail(restLogin.getEmail());
            if(checkUser != null ){
                if(encoder.matches(restLogin.getPassword(),checkUser.getPassword())){
-                   return ((checkUser.getRoles().stream().findFirst()).get()).getRoleName()+" "+checkUser.getUserId()+" "+checkUser.getName();
+                   return ((checkUser.getRoles().stream().findFirst()).get()).getRoleName()+" "+checkUser.getUserId()+" "+checkUser.getName()+" "+checkUser.getEmail();
                }
                else{
                    return "Invalid";

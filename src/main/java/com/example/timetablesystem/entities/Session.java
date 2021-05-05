@@ -3,29 +3,34 @@ package com.example.timetablesystem.entities;
 import com.example.timetablesystem.entities.enums.Day;
 import com.example.timetablesystem.entities.enums.LectureTime;
 import com.example.timetablesystem.entities.enums.LectureType;
-import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name="session")
-@JsonRootName("session")
+@JsonRootName("Session")
 public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sessionId;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+   // @JsonIgnore
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "batchId")
     private Batch batch;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "roomId")
     private Room room;
 
+
     @Enumerated(EnumType.STRING)
     private Day day;
+
 
     @Enumerated(EnumType.STRING)
     private LectureType lectureType;
@@ -33,11 +38,13 @@ public class Session {
     @Enumerated(EnumType.STRING)
     private LectureTime lectureTime;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinTable(name = "session_lecturer",joinColumns = @JoinColumn(name = "sessionId"),inverseJoinColumns = @JoinColumn(name = "lecturerId"))
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "lecturerId")
     private Lecturer lecturer;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "moduleId")
     private Module module;
 

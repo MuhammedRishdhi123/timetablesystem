@@ -17,6 +17,7 @@ public class User {
     @JsonIgnore
     private String password;
     private String phone;
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     @JoinTable(
             name="user_roles",
@@ -26,12 +27,15 @@ public class User {
                     name="roleId",referencedColumnName = "roleId"))
     private Set<Role> roles;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "user")
     private Admin admin;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "user")
     private Student student;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "user")
     private Lecturer lecturer;
 

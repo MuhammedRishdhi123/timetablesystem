@@ -255,6 +255,17 @@ public class AdminController {
         return "redirect:/admin/manageModules?deleted";
     }
 
+    @GetMapping("/deleteSession/{sessionId}")
+    public String deleteSession(@PathVariable(value ="sessionId") int sessionId)
+    {
+        Session session=sessionService.getSessionById(sessionId);
+        if(session != null)
+        {
+            sessionService.deleteSession(session);
+        }
+        return "redirect:/admin/manageTimetable?deleted";
+    }
+
     @GetMapping("/editStudent/{userId}")
     public String editStudent(@PathVariable(value = "userId")int userId,Model model)
     {
@@ -456,8 +467,19 @@ public class AdminController {
     @PostMapping("/saveSession")
     public String saveSession(@ModelAttribute("session") Session session)
     {
-        sessionService.saveSession(session);
-        return "redirect:/admin/manageTimetable?success";
+        boolean isLecturerFree=lecturerService.checkLecturerAvailability(session);
+        boolean isSessionFree=sessionService.checkSessionAvailability(session);
+        boolean isRoomFree=roomService.checkRoomAvailability(session);
+        if(isLecturerFree && isRoomFree && isSessionFree) {
+            sessionService.saveSession(session);
+            return "redirect:/admin/manageTimetable?success";
+        }
+        else{
+            if(!isLecturerFree) return "redirect:/admin/manageTimetable?failedLecturer";
+            if(!isSessionFree) return "redirect:/admin/manageTimetable?failedSession";
+            if(!isRoomFree) return "redirect:/admin/manageTimetable?failedRoom";
+        }
+        return null;
     }
 
     @PostMapping("/saveLecturer")
@@ -466,7 +488,7 @@ public class AdminController {
         boolean emailExist=userService.checkEmail(lecturerRegistration.getEmail());
         if(emailExist)
         {
-            return "redirect:/admin/registerLecturer?invalidEmail";
+            return "redirect:/admin/addLecturer?invalidEmail";
         }
         else if(!emailExist){
             lecturerService.saveLecturer(lecturerRegistration);
