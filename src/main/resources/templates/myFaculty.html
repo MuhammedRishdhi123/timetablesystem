@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title>Lecturer Home</title>
+    <title>My Faculty</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,7 +20,7 @@
 
 </head>
 <body>
-<div sec:authorize="hasAuthority('Lecturer')">
+<div >
     <!--header-->
     <header class="main-header clearfix" role="header">
         <div class="logo">
@@ -29,10 +29,11 @@
         <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
-                <li><a th:href="@{/lecturer/home}">Home</a></li>
+                <li><a th:href="@{/}">Home</a></li>
                 <li class="has-submenu"><a href="">Options</a>
                     <ul class="sub-menu">
-                        <li sec:authorize="hasAuthority('Lecturer')"><a th:href="@{/lecturer/myModules}">My modules</a></li>
+                        <li><a th:href="@{/user/myModules}">My modules</a></li>
+                        <li sec:authorize="hasAuthority('Student')"><a th:href="@{/student/myFaculty}">My Faculty</a></li>
 
                     </ul>
                 </li>
@@ -59,63 +60,34 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="table-responsive" th:if="${sessions != null}">
-                    <h3 align="center"><i class="fa fa-angle-right"></i> Timetable for lecturer: <span
-                            th:text="${lecturerName}"/></h3>
+                <div class="table-responsive">
+                    <h3 align="center"><i class="fa fa-angle-right"></i> My Faculty</h3>
                     <table class="table table-bordered table-striped table-hover table-responsive mTable">
                         <thead>
                         <tr class="success">
-                            <th>DAY</th>
-                            <th>TIME</th>
-                            <th>CLASS</th>
-                            <th>LECTURER</th>
-                            <th>BATCH</th>
-                            <th>MODULE</th>
-                            <th>TYPE</th>
-
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact No.</th>
                         </tr>
                         </thead>
                         <tbody>
 
 
-                        <tr th:each="s:${sessions}">
+                        <tr th:each="l:${lecturers}">
 
 
                             <td class="tr-border" style="text-align: center"><span
-                                    th:text="${s.day.name()}"></span>
+                                    th:text="${l.user.name}"></span>
                             </td>
 
 
                             <td><span
-                                    th:text="${s.lectureTime.lectureTimeName}"></span>
+                                    th:text="${l.user.email}"></span>
                             </td>
 
-
-                            <td style="text-align: center"><span
-                                    th:text="${s.room.roomName}"></span>
+                            <td><span
+                                    th:text="${l.user.phone}"></span>
                             </td>
-
-
-                            <td style="text-align: center"><span
-                                    th:text="${s.lecturer.user.name}"></span>
-                            </td>
-
-
-                            <td style="text-align: center"><span
-                                    th:text="${s.batch.batchTitle}"></span>
-                            </td>
-
-
-                            <td style="text-align: center"><span
-                                    th:text="${s.module.moduleTitle}"></span>
-                            </td>
-
-
-                            <td style="text-align: center"><span
-                                    th:text="${s.lectureType.lectureTypeName}"></span>
-                            </td>
-
-
 
                         </tr>
 

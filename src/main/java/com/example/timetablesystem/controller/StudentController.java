@@ -78,12 +78,7 @@ public class StudentController {
     public String myModules(Model model)
     {
         User loggedUser=userService.loggedUser();
-        if(loggedUser.getLecturer() != null){
-            List<Module> moduleList=loggedUser.getLecturer().getModules().stream().collect(Collectors.toList());
-            model.addAttribute("modules",moduleList);
-            return "myModules";
-        }
-        else if(loggedUser.getStudent() != null){
+         if(loggedUser.getStudent() != null){
             List<Module> moduleList=loggedUser.getStudent().getCourse().getModules().stream().collect(Collectors.toList());
             model.addAttribute("modules",moduleList);
             return "myModules";

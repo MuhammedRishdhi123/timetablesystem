@@ -1,0 +1,1489 @@
+@startuml
+
+title __TIMETABLESYSTEM's Class Diagram__\n
+
+  namespace  {
+    namespace mvn.wrapper {
+      class .mvn.wrapper.MavenWrapperDownloader {
+      }
+    }
+  }
+  
+
+  namespace  {
+    class MavenWrapperDownloader {
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace RestController {
+        class com.example.timetablesystem.RestController.RestStudentController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace RestController {
+        class com.example.timetablesystem.RestController.RestUserController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace RestEntities {
+        class com.example.timetablesystem.dto.RestLogin {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      class com.example.timetablesystem.TimetablesystemApplication {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace controller {
+        class com.example.timetablesystem.controller.AdminController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace controller {
+        class com.example.timetablesystem.controller.LecturerController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace controller {
+        class com.example.timetablesystem.controller.PageController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace controller {
+        class com.example.timetablesystem.controller.StudentController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace controller {
+        class com.example.timetablesystem.controller.UserController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.AdminRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.BatchRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.CourseRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.FacultyDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.LecturerRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.LecturersList {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.ModuleRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.RoomRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.SessionDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.SessionRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.StudentDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.StudentRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace dto {
+        class com.example.timetablesystem.dto.UserRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Admin {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Batch {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Course {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Lecturer {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Module {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Role {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Room {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Session {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.Student {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.User {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        class com.example.timetablesystem.entities.UserPrincipal {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        namespace enums {
+          enum Day {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        namespace enums {
+          enum LectureTime {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace entities {
+        namespace enums {
+          enum LectureType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.AdminRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.BatchRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.CourseRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.LecturerRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.ModuleRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.RoleRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.RoomRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.SessionRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.StudentRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace repository {
+        interface com.example.timetablesystem.repository.UserRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace security {
+        class com.example.timetablesystem.security.WebSecurityConfig {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.AdminService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.AdminServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.BatchService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.BatchServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.CourseService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.CourseServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.LecturerService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.LecturerServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.LoginService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.LoginServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.ModuleService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.ModuleServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.RoomService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.RoomServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.SessionService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.SessionServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.StudentService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.StudentServiceImp {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        interface com.example.timetablesystem.service.UserService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.timetablesystem {
+      namespace service {
+        class com.example.timetablesystem.service.UserServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace RestController {
+        class src.main.java.com.example.timetablesystem.RestController.RestStudentController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace RestController {
+        class src.main.java.com.example.timetablesystem.RestController.RestUserController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace RestEntities {
+        class src.main.java.com.example.timetablesystem.dto.RestLogin {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      class src.main.java.com.example.timetablesystem.TimetablesystemApplication {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace controller {
+        class src.main.java.com.example.timetablesystem.controller.AdminController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace controller {
+        class src.main.java.com.example.timetablesystem.controller.BatchController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace controller {
+        class src.main.java.com.example.timetablesystem.controller.CourseController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace controller {
+        class src.main.java.com.example.timetablesystem.controller.LecturerController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace controller {
+        class src.main.java.com.example.timetablesystem.controller.PageController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace controller {
+        class src.main.java.com.example.timetablesystem.controller.StudentController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace controller {
+        class src.main.java.com.example.timetablesystem.controller.UserController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.AdminRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.BatchRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.CourseRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.FacultyDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.LecturerRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.LecturersList {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.ModuleRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.RoomRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.SessionDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.SessionRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.StudentDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.StudentRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace dto {
+        class src.main.java.com.example.timetablesystem.dto.UserRegistration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Admin {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Batch {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Course {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Lecturer {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Module {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Role {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Room {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Session {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.Student {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.User {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        class src.main.java.com.example.timetablesystem.entities.UserPrincipal {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        namespace enums {
+          enum Day {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        namespace enums {
+          enum LectureTime {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace entities {
+        namespace enums {
+          enum LectureType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.AdminRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.BatchRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.CourseRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.LecturerRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.ModuleRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.RoleRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.RoomRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.SessionRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.StudentRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace repository {
+        interface src.main.java.com.example.timetablesystem.repository.UserRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace security {
+        class src.main.java.com.example.timetablesystem.security.WebSecurityConfig {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.AdminService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.AdminServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.BatchService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.BatchServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.CourseService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.CourseServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.LecturerService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.LecturerServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.LoginService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.LoginServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.ModuleService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.ModuleServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.RoomService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.RoomServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.SessionService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.SessionServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.StudentService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.StudentServiceImp {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        interface src.main.java.com.example.timetablesystem.service.UserService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.main.java.com.example.timetablesystem {
+      namespace service {
+        class src.main.java.com.example.timetablesystem.service.UserServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace rc.test.java.com.example.timetablesystem {
+      class src.test.java.com.example.timetablesystem.TimetablesystemApplicationTests {
+      }
+    }
+  }
+  
+
+  com.example.timetablesystem.RestController.RestStudentController o-- com.example.timetablesystem.service.SessionService : sessionService
+  com.example.timetablesystem.RestController.RestStudentController o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.RestController.RestUserController o-- com.example.timetablesystem.service.LoginService : loginService
+  com.example.timetablesystem.RestController.RestUserController o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.AdminService : adminService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.BatchService : batchService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.CourseService : courseService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.LecturerService : lecturerService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.ModuleService : moduleService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.RoomService : roomService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.SessionService : sessionService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.StudentService : studentService
+  com.example.timetablesystem.controller.AdminController o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.controller.LecturerController o-- com.example.timetablesystem.service.SessionService : sessionService
+  com.example.timetablesystem.controller.LecturerController o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.controller.PageController o-- com.example.timetablesystem.service.BatchService : batchService
+  com.example.timetablesystem.controller.PageController o-- com.example.timetablesystem.service.CourseService : courseService
+  com.example.timetablesystem.controller.PageController o-- com.example.timetablesystem.service.SessionService : sessionService
+  com.example.timetablesystem.controller.PageController o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.controller.StudentController o-- com.example.timetablesystem.service.SessionService : sessionService
+  com.example.timetablesystem.controller.StudentController o-- com.example.timetablesystem.service.StudentService : studentService
+  com.example.timetablesystem.controller.StudentController o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.controller.UserController o-- com.example.timetablesystem.service.AdminService : adminService
+  com.example.timetablesystem.controller.UserController o-- com.example.timetablesystem.service.BatchService : batchService
+  com.example.timetablesystem.controller.UserController o-- com.example.timetablesystem.service.CourseService : courseService
+  com.example.timetablesystem.controller.UserController o-- com.example.timetablesystem.service.StudentService : studentService
+  com.example.timetablesystem.controller.UserController o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.dto.ModuleRegistration o-- com.example.timetablesystem.entities.Course : course
+  com.example.timetablesystem.dto.SessionRegistration o-- com.example.timetablesystem.entities.Batch : batch
+  com.example.timetablesystem.dto.SessionRegistration o-- com.example.timetablesystem.entities.Lecturer : lecturer
+  com.example.timetablesystem.dto.SessionRegistration o-- com.example.timetablesystem.entities.Module : module
+  com.example.timetablesystem.dto.SessionRegistration o-- com.example.timetablesystem.entities.Room : room
+  com.example.timetablesystem.dto.StudentRegistration o-- com.example.timetablesystem.entities.Batch : batch
+  com.example.timetablesystem.dto.StudentRegistration o-- com.example.timetablesystem.entities.Course : course
+  com.example.timetablesystem.entities.Admin o-- com.example.timetablesystem.entities.User : user
+  com.example.timetablesystem.entities.Lecturer o-- com.example.timetablesystem.entities.User : user
+  com.example.timetablesystem.entities.Module o-- com.example.timetablesystem.entities.Course : course
+  com.example.timetablesystem.entities.Session o-- com.example.timetablesystem.entities.Batch : batch
+  com.example.timetablesystem.entities.Session o-- com.example.timetablesystem.entities.enums.Day : day
+  com.example.timetablesystem.entities.Session o-- com.example.timetablesystem.entities.enums.LectureTime : lectureTime
+  com.example.timetablesystem.entities.Session o-- com.example.timetablesystem.entities.enums.LectureType : lectureType
+  com.example.timetablesystem.entities.Session o-- com.example.timetablesystem.entities.Lecturer : lecturer
+  com.example.timetablesystem.entities.Session o-- com.example.timetablesystem.entities.Module : module
+  com.example.timetablesystem.entities.Session o-- com.example.timetablesystem.entities.Room : room
+  com.example.timetablesystem.entities.Student o-- com.example.timetablesystem.entities.Batch : batch
+  com.example.timetablesystem.entities.Student o-- com.example.timetablesystem.entities.Course : course
+  com.example.timetablesystem.entities.Student o-- com.example.timetablesystem.entities.User : user
+  com.example.timetablesystem.entities.User o-- com.example.timetablesystem.entities.Admin : admin
+  com.example.timetablesystem.entities.User o-- com.example.timetablesystem.entities.Lecturer : lecturer
+  com.example.timetablesystem.entities.User o-- com.example.timetablesystem.entities.Student : student
+  com.example.timetablesystem.entities.UserPrincipal .up.|> org.springframework.security.core.userdetails.UserDetails
+  com.example.timetablesystem.entities.UserPrincipal o-- com.example.timetablesystem.entities.User : user
+  com.example.timetablesystem.security.WebSecurityConfig -up-|> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+  com.example.timetablesystem.security.WebSecurityConfig o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.service.AdminServiceImpl .up.|> com.example.timetablesystem.service.AdminService
+  com.example.timetablesystem.service.AdminServiceImpl o-- com.example.timetablesystem.repository.AdminRepository : adminRepository
+  com.example.timetablesystem.service.BatchServiceImpl .up.|> com.example.timetablesystem.service.BatchService
+  com.example.timetablesystem.service.BatchServiceImpl o-- com.example.timetablesystem.repository.BatchRepository : batchRepository
+  com.example.timetablesystem.service.CourseServiceImpl .up.|> com.example.timetablesystem.service.CourseService
+  com.example.timetablesystem.service.CourseServiceImpl o-- com.example.timetablesystem.repository.CourseRepository : courseRepository
+  com.example.timetablesystem.service.LecturerServiceImpl .up.|> com.example.timetablesystem.service.LecturerService
+  com.example.timetablesystem.service.LecturerServiceImpl o-- com.example.timetablesystem.repository.LecturerRepository : lecturerRepository
+  com.example.timetablesystem.service.LoginServiceImpl .up.|> com.example.timetablesystem.service.LoginService
+  com.example.timetablesystem.service.LoginServiceImpl o-- com.example.timetablesystem.repository.UserRepository : userRepository
+  com.example.timetablesystem.service.LoginServiceImpl o-- com.example.timetablesystem.service.UserService : userService
+  com.example.timetablesystem.service.ModuleServiceImpl .up.|> com.example.timetablesystem.service.ModuleService
+  com.example.timetablesystem.service.ModuleServiceImpl o-- com.example.timetablesystem.repository.ModuleRepository : moduleRepository
+  com.example.timetablesystem.service.RoomServiceImpl .up.|> com.example.timetablesystem.service.RoomService
+  com.example.timetablesystem.service.RoomServiceImpl o-- com.example.timetablesystem.repository.RoomRepository : roomRepository
+  com.example.timetablesystem.service.SessionServiceImpl .up.|> com.example.timetablesystem.service.SessionService
+  com.example.timetablesystem.service.SessionServiceImpl o-- com.example.timetablesystem.repository.SessionRepository : sessionRepository
+  com.example.timetablesystem.service.StudentServiceImp .up.|> com.example.timetablesystem.service.StudentService
+  com.example.timetablesystem.service.StudentServiceImp o-- com.example.timetablesystem.repository.StudentRepository : studentRepository
+  com.example.timetablesystem.service.UserServiceImpl .up.|> com.example.timetablesystem.service.UserService
+  com.example.timetablesystem.service.UserServiceImpl o-- com.example.timetablesystem.repository.UserRepository : userRepository
+  src.main.java.com.example.timetablesystem.service.AdminServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.AdminService
+  src.main.java.com.example.timetablesystem.service.BatchServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.BatchService
+  src.main.java.com.example.timetablesystem.service.CourseServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.CourseService
+  src.main.java.com.example.timetablesystem.service.LecturerServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.LecturerService
+  src.main.java.com.example.timetablesystem.service.LoginServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.LoginService
+  src.main.java.com.example.timetablesystem.service.ModuleServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.ModuleService
+  src.main.java.com.example.timetablesystem.service.RoomServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.RoomService
+  src.main.java.com.example.timetablesystem.service.SessionServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.SessionService
+  src.main.java.com.example.timetablesystem.service.StudentServiceImp .up.|> src.main.java.com.example.timetablesystem.service.StudentService
+  src.main.java.com.example.timetablesystem.service.UserServiceImpl .up.|> src.main.java.com.example.timetablesystem.service.UserService
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

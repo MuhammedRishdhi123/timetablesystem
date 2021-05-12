@@ -20,7 +20,7 @@ Coded by www.creative-tim.com
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Manage Students
+        Manage Rooms
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -29,12 +29,13 @@ Coded by www.creative-tim.com
     <!-- CSS Files -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
     <link th:href="@{/css/paper-dashboard.css}" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
     <!--    &lt;!&ndash; CSS Just for demo purpose, don't include it in your project &ndash;&gt;-->
     <link th:href="@{/css/demo.css}" rel="stylesheet" />
 </head>
 
 <body class="">
-<div sec:authorize="hasAuthority('Admin')">
+<!--<div sec:authorize="hasAuthority('Admin')">-->
 <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
         <div class="logo">
@@ -71,7 +72,7 @@ Coded by www.creative-tim.com
                         <h5><i class="fas fa-book-open"></i>&nbsp;Manage Courses</h5>
                     </a>
                 </li>
-                <li class="active">
+                <li class="">
                     <a th:href="@{/admin/manageStudents}">
 
                         <h5><i class="fas fa-users"></i>&nbsp;Manage Students</h5>
@@ -97,8 +98,7 @@ Coded by www.creative-tim.com
                         <h5><i class="fas fa-book"></i>&nbsp;Manage Modules</h5>
                     </a>
                 </li>
-
-                <li class="">
+                <li class="active">
                     <a th:href="@{/admin/manageRooms}">
 
                         <h5><i class="fas fa-door-open"></i>&nbsp;Manage Rooms</h5>
@@ -126,7 +126,7 @@ Coded by www.creative-tim.com
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="javascript:;">Manage Students</a>
+                    <a class="navbar-brand" href="javascript:;">Manage Modules</a>
                 </div>
 
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
@@ -151,16 +151,31 @@ Coded by www.creative-tim.com
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Manage Students</h4>
+                            <h4 class="card-title"> Manage Modules</h4>
                         </div>
                         <div th:if="${param.deleted}">
                             <div class="alert alert-danger" role="alert">
-                                <h5 class="alert-heading">Student deleted successfully !</h5>
+                                <h5 class="alert-heading">Room deleted successfully !</h5>
+                            </div>
+                        </div>
+                        <div th:if="${param.success}">
+                            <div class="alert alert-danger" role="alert">
+                                <h5 class="alert-heading">Room added successfully !</h5>
                             </div>
                         </div>
                         <div th:if="${param.failed}">
                             <div class="alert alert-danger" role="alert">
-                                <h5 class="alert-heading">Student deletion unsuccessful !</h5>
+                                <h5 class="alert-heading">Room deletion unsuccessful !</h5>
+                            </div>
+                        </div>
+                        <div th:if="${param.updated}">
+                            <div class="alert alert-danger" role="alert">
+                                <h5 class="alert-heading">Room updated successfully !</h5>
+                            </div>
+                        </div>
+                        <div th:if="${param.updatedfailed}">
+                            <div class="alert alert-danger" role="alert">
+                                <h5 class="alert-heading">Room updated unsuccessful !</h5>
                             </div>
                         </div>
                         <div class="card-body">
@@ -168,50 +183,47 @@ Coded by www.creative-tim.com
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
-                                        Student ID
+                                        Room ID
                                     </th>
                                     <th>
                                         Name
                                     </th>
                                     <th>
-                                        Email
+                                        Seating capacity
                                     </th>
                                     <th>
-                                        Phone
-                                    </th>
-                                    <th>
-                                        Batch
-                                    </th>
-                                    <th>
-                                        Course
+                                        Status
                                     </th>
                                     <th>
 
                                     </th>
                                     <th>
-                                        
+
                                     </th>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="student : ${students}">
-                                        <td th:text="${student.studentId}"></td>
-                                        <td th:text="${student.getUser().getName()}"></td>
-                                        <td th:text="${student.getUser().getEmail()}"></td>
-                                        <td th:text="${student.getUser().getPhone()}"></td>
-                                        <td th:text="${student.getBatch().getBatchTitle()}"></td>
-                                        <td th:text="${student.getCourse().getCourseTitle()}"></td>
-                                        <td><a type="button" th:href="@{/admin/editStudent/{userId}(userId=${student.getUser().getUserId()})}" class="btn btn-info">Edit</a></td>
-                                        <td><a type="button" th:href="@{/admin/deleteStudent/{userId}(userId=${student.getUser().getUserId()})}" class="btn btn-danger">Delete</a></td>
+                                    <tr th:each="room : ${rooms}">
+                                        <td th:text="${room.getRoomId()}"></td>
+                                        <td th:text="${room.getRoomName()}"></td>
+                                        <td th:text="${room.getSeatingCapacity()}"></td>
+                                        <td th:text="${room.getStatus()}"></td>
+                                        <td><a type="button" th:href="@{/admin/editRoom/{roomId}(roomId=${room.getRoomId()})}" class="btn btn-info">Edit</a></td>
+                                        <td><a type="button" th:href="@{/admin/deleteRoom/{roomId}(roomId=${room.getRoomId()})}" class="btn btn-danger">Delete</a></td>
                                     </tr>
 
                                     </tbody>
                                 </table>
+                                <a th:href="@{/admin/addRoom}"><button class="form-control btn-round btn-info" >Add New Room</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
 
         <footer class="footer footer-black  footer-white ">
             <div class="container-fluid">
@@ -235,7 +247,7 @@ Coded by www.creative-tim.com
         </footer>
     </div>
 </div>
-</div>
+<!--</div>-->
 <!--   Core JS Files   -->
 <script th:src="@{/jquery/jquery.min.js}"></script>
 <script th:src="@{/js/popper.min.js}"></script>
@@ -246,10 +258,10 @@ Coded by www.creative-tim.com
 <script th:src="@{/js/chartjs.min.js}"></script>
 <script th:src="@{/js/demo.js}"></script>
 <script>
-    $(document).ready(function() {
-        // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-        demo.initChartsPages();
-    });
+
+
+
+
 </script>
 </body>
 

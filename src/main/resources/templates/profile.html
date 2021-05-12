@@ -29,16 +29,16 @@
         <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
-                <li><a href="#section1">Home</a></li>
-                <li class="has-submenu"><a href="#section2">Options</a>
+                <li><a th:href="@{/}">Home</a></li>
+                <li class="has-submenu"><a href="">Options</a>
                     <ul class="sub-menu">
-                        <li><a href="#section2">My modules</a></li>
-                        <li><a href="#section3">My Faculty</a></li>
-                        <li><a href="#section3">Resources</a></li>
+                        <li sec:authorize="hasAuthority('Student')"><a th:href="@{/student/myModules}">My modules</a></li>
+                        <li sec:authorize="hasAuthority('Lecturer')"><a th:href="@{/lecturer/myModules}">My modules</a></li>
+                        <li sec:authorize="hasAuthority('Student')"><a th:href="@{/student/myFaculty}">My Faculty</a></li>
                     </ul>
                 </li>
 
-                <li><a href="#section6">Contact</a></li>
+                <li><a href="">Contact</a></li>
                 <li><img th:src="@{/images/usericon.png}" id="profileImg1" class="rounded-circle" height="50" width="50"></li>
                 <li><span sec:authentication="principal.name"></span></li>
                 <li class="has-submenu">

@@ -1,0 +1,350 @@
+<!--
+=========================================================
+* Paper Dashboard 2 - v2.0.1
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/paper-dashboard-2
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Manage Modules
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!-- CSS Files -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/paper-dashboard.css}" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <!--    &lt;!&ndash; CSS Just for demo purpose, don't include it in your project &ndash;&gt;-->
+    <link th:href="@{/css/demo.css}" rel="stylesheet" />
+</head>
+
+<body class="">
+<!--<div sec:authorize="hasAuthority('Admin')">-->
+    <div class="wrapper ">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <div class="logo">
+                <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+                    <div class="logo-image-small">
+
+                    </div>
+                    <!-- <p>CT</p> -->
+                </a>
+                <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+                    Protabler
+                    <!-- <div class="logo-image-big">
+                      <img src="../assets/img/logo-big.png">
+                    </div> -->
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="">
+                        <a th:href="@{/admin/home}">
+
+                            <h5><i class="fas fa-university"></i>&nbsp;Dashboard</h5>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/manageTimetable}">
+
+                            <h5><i class="far fa-calendar-alt"></i>&nbsp;Manage timetable</h5>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a th:href="@{/admin/manageCourses}">
+
+                            <h5><i class="fas fa-book-open"></i>&nbsp;Manage Courses</h5>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a th:href="@{/admin/manageStudents}">
+
+                            <h5><i class="fas fa-users"></i>&nbsp;Manage Students</h5>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a th:href="@{/admin/manageLecturers}">
+
+                            <h5><i class="fas fa-users"></i>&nbsp;Manage Lecturers</h5>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a th:href="@{/admin/manageBatches}">
+
+                            <h5><i class="fas fa-user-graduate"></i>&nbsp;Manage Batches</h5>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a th:href="@{/admin/manageModules}">
+
+                            <h5><i class="fas fa-book"></i>&nbsp;Manage Modules</h5>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a th:href="@{/admin/manageRooms}">
+
+                            <h5><i class="fas fa-door-open"></i>&nbsp;Manage Rooms</h5>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/profile}">
+
+                            <h5><i class="far fa-user"></i>&nbsp;Profile</h5>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="javascript:;">Manage Modules</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+                        <ul class="navbar-nav">
+
+                            <li class="nav-item">
+                                <a class="nav-link btn-rotate" th:href="@{/logout}">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Logout</span>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"> Manage Modules</h4>
+                            </div>
+                            <div th:if="${param.deleted}">
+                                <div class="alert alert-danger" role="alert">
+                                    <h5 class="alert-heading">Module deleted successfully !</h5>
+                                </div>
+                            </div>
+                            <div th:if="${param.success}">
+                                <div class="alert alert-danger" role="alert">
+                                    <h5 class="alert-heading">Module added successfully !</h5>
+                                </div>
+                            </div>
+                            <div th:if="${param.failed}">
+                                <div class="alert alert-danger" role="alert">
+                                    <h5 class="alert-heading">Module deletion unsuccessful !</h5>
+                                </div>
+                            </div>
+                            <div th:if="${param.updated}">
+                                <div class="alert alert-danger" role="alert">
+                                    <h5 class="alert-heading">Module updated successfully !</h5>
+                                </div>
+                            </div>
+                            <div th:if="${param.updatedfailed}">
+                                <div class="alert alert-danger" role="alert">
+                                    <h5 class="alert-heading">Module updated unsuccessful !</h5>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                        <th>
+                                            Module ID
+                                        </th>
+                                        <th>
+                                            Title
+                                        </th>
+                                        <th>
+                                            Credits
+                                        </th>
+                                        <th>
+                                            Lecturers
+                                        </th>
+                                        <th>
+                                            Course
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="module : ${modules}">
+                                            <td th:text="${module.getModuleId()}"></td>
+                                            <td th:text="${module.getModuleTitle()}"></td>
+                                            <td th:text="${module.getModuleCredits()}"></td>
+                                            <td ><b><span th:text="${module.getLecturersString()}"></span></b>&nbsp;<button onclick="addLecturerToModule(this)" th:id="${module.moduleId}"  class='pull-left btn btn-success btn-xs' data-toggle='modal' data-target='#myModal3'><i class='fa fa-plus'></i></button><button onclick="deleteLecturersFromModule(this)" th:id="${module.moduleId}" class='position3 pull-left btn btn-danger btn-xs' data-toggle='modal' data-target='#myModal4'><i class='fa fa-trash'></i></button>
+                                            </td>
+                                            <td th:text="${module.course.courseTitle}"></td>
+                                            <td><a type="button" th:href="@{/admin/editModule/{moduleId}(moduleId=${module.getModuleId()})}" class="btn btn-info">Edit</a></td>
+                                            <td><a type="button" th:href="@{/admin/deleteModule/{moduleId}(moduleId=${module.getModuleId()})}" class="btn btn-danger">Delete</a></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <a th:href="@{/admin/addModule}"><button class="form-control btn-round btn-info" >Add New Module</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel3">Add lecturers to Module</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form th:action="@{/admin/addModuleLecturer}" method="post" th:object="${lecturersList}">
+                                <div style="display: none;" class="form-group">
+                                    <div>
+                                        <input id="addmoduleId" name="id" type="text" class="form-control" placeholder="Id"/>
+                                    </div>
+                                </div>
+                                <div align="center">
+
+                                    <select name="lecturerList" multiple class="selectLecturer selectpicker" data-live-search="true">
+                                        <option value="" disabled>Select lecturers</option>
+                                        <option th:each="lecturer:${lecturers}" th:value="${lecturer.lecturerId}" th:text="${lecturer.user.name}"></option>
+                                    </select>
+                                </div>
+
+                                <div align="center">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-success btn-md" value="Add"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel4">Reset lecturers</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form th:action="@{/admin/removeModuleLecturers}" method="post">
+                                <div style="display: none;" class="form-group">
+                                    <div>
+                                        <input id="removemoduleId" name="id" type="text" class="form-control" placeholder="Id"/>
+                                    </div>
+                                </div>
+                                <div align="center">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-danger btn-md" value="Confirm"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer footer-black  footer-white ">
+                <div class="container-fluid">
+                    <div class="row">
+                        <nav class="footer-nav">
+                            <ul>
+                                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
+                                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
+                                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+                            </ul>
+                        </nav>
+                        <div class="credits ml-auto">
+              <span class="copyright">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              </span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+<!--</div>-->
+<!--   Core JS Files   -->
+<script th:src="@{/jquery/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/perfect-scrollbar.jquery.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+<!-- Chart JS -->
+<script th:src="@{/js/chartjs.min.js}"></script>
+<script th:src="@{/js/demo.js}"></script>
+<script>
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+        demo.initChartsPages();
+    });
+
+    function addLecturerToModule (button) {
+        var id = 0;
+        id = button.id;
+        document.getElementById("addmoduleId").value = id;
+
+    }
+
+    function deleteLecturersFromModule (button) {
+        var id = 0;
+        id = button.id;
+        document.getElementById("removemoduleId").value = id;
+
+    }
+
+    $('#myModal3').on('shown.bs.modal', function () {
+        $('#addmoduleId').focus();
+    });
+
+    $('#myModal4').on('shown.bs.modal', function () {
+        $('#removemoduleId').focus();
+    })
+
+
+
+</script>
+</body>
+
+</html>
