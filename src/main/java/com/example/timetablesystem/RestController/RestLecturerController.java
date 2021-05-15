@@ -1,5 +1,6 @@
 package com.example.timetablesystem.RestController;
 
+import com.example.timetablesystem.dto.ModuleDTO;
 import com.example.timetablesystem.dto.SessionDTO;
 import com.example.timetablesystem.entities.Module;
 import com.example.timetablesystem.entities.Session;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import sun.security.pkcs11.Secmod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,11 +52,19 @@ public class RestLecturerController {
 
 
     @GetMapping("/getMyModules/{userId}")
-    public List<Module> getMyModules(@PathVariable(value = "userId")int userId){
+    public List<ModuleDTO> getMyModules(@PathVariable(value = "userId")int userId){
         User temp=userService.findUserById(userId);
         if(temp != null){
             List<Module> moduleList=temp.getLecturer().getModules().stream().collect(Collectors.toList());
-            return moduleList;
+            List<ModuleDTO> modules=new ArrayList<>();
+            for(Module m:moduleList){
+                ModuleDTO moduleDTO=new ModuleDTO();
+                moduleDTO.setModuleId(m.getModuleId());
+                moduleDTO.setModuleTitle(m.getModuleTitle());
+                moduleDTO.setModuleCredits(m.getModuleCredits());
+                modules.add(moduleDTO);
+            }
+            return modules;
         }
         return null;
     }

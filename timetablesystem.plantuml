@@ -147,7 +147,7 @@ title __TIMETABLESYSTEM's Class Diagram__\n
   namespace  {
     namespace om.example.timetablesystem {
       namespace dto {
-        class com.example.timetablesystem.dto.LecturerRegistration {
+        class com.example.timetablesystem.dto.LecturerDTO {
         }
       }
     }
@@ -167,7 +167,7 @@ title __TIMETABLESYSTEM's Class Diagram__\n
   namespace  {
     namespace om.example.timetablesystem {
       namespace dto {
-        class com.example.timetablesystem.dto.ModuleRegistration {
+        class com.example.timetablesystem.dto.ModuleDTO {
         }
       }
     }
@@ -177,7 +177,7 @@ title __TIMETABLESYSTEM's Class Diagram__\n
   namespace  {
     namespace om.example.timetablesystem {
       namespace dto {
-        class com.example.timetablesystem.dto.RoomRegistration {
+        class com.example.timetablesystem.dto.RoomDTO {
         }
       }
     }
@@ -841,7 +841,7 @@ title __TIMETABLESYSTEM's Class Diagram__\n
   namespace  {
     namespace rc.main.java.com.example.timetablesystem {
       namespace dto {
-        class src.main.java.com.example.timetablesystem.dto.LecturerRegistration {
+        class src.main.java.com.example.timetablesystem.dto.LecturerDTO {
         }
       }
     }
@@ -861,7 +861,7 @@ title __TIMETABLESYSTEM's Class Diagram__\n
   namespace  {
     namespace rc.main.java.com.example.timetablesystem {
       namespace dto {
-        class src.main.java.com.example.timetablesystem.dto.ModuleRegistration {
+        class src.main.java.com.example.timetablesystem.dto.ModuleDTO {
         }
       }
     }
@@ -871,7 +871,7 @@ title __TIMETABLESYSTEM's Class Diagram__\n
   namespace  {
     namespace rc.main.java.com.example.timetablesystem {
       namespace dto {
-        class src.main.java.com.example.timetablesystem.dto.RoomRegistration {
+        class src.main.java.com.example.timetablesystem.dto.RoomDTO {
         }
       }
     }
@@ -1419,7 +1419,7 @@ title __TIMETABLESYSTEM's Class Diagram__\n
   com.example.timetablesystem.controller.UserController o-- com.example.timetablesystem.service.CourseService : courseService
   com.example.timetablesystem.controller.UserController o-- com.example.timetablesystem.service.StudentService : studentService
   com.example.timetablesystem.controller.UserController o-- com.example.timetablesystem.service.UserService : userService
-  com.example.timetablesystem.dto.ModuleRegistration o-- com.example.timetablesystem.entities.Course : course
+  com.example.timetablesystem.dto.ModuleDTO o-- com.example.timetablesystem.entities.Course : course
   com.example.timetablesystem.dto.SessionRegistration o-- com.example.timetablesystem.entities.Batch : batch
   com.example.timetablesystem.dto.SessionRegistration o-- com.example.timetablesystem.entities.Lecturer : lecturer
   com.example.timetablesystem.dto.SessionRegistration o-- com.example.timetablesystem.entities.Module : module

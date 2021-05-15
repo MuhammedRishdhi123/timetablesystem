@@ -1,7 +1,6 @@
 package com.example.timetablesystem.service;
 
-import com.example.timetablesystem.dto.RoomRegistration;
-import com.example.timetablesystem.entities.Module;
+import com.example.timetablesystem.dto.RoomDTO;
 import com.example.timetablesystem.entities.Room;
 import com.example.timetablesystem.entities.Session;
 import com.example.timetablesystem.repository.RoomRepository;
@@ -17,7 +16,7 @@ public class RoomServiceImpl implements RoomService{
     private RoomRepository roomRepository;
 
     @Override
-    public Room saveRoom(RoomRegistration room) {
+    public Room saveRoom(RoomDTO room) {
         Room newroom=new Room();
         newroom.setRoomName(room.getRoomName());
         newroom.setSeatingCapacity(room.getSeatingCapacity());
@@ -58,5 +57,10 @@ public class RoomServiceImpl implements RoomService{
             if(s.getDay()==session.getDay() && s.getLectureTime()==session.getLectureTime()) return false;
         }
         return true;
+    }
+
+    @Override
+    public Room getRoomByName(String name) {
+        return roomRepository.findByRoomName(name);
     }
 }

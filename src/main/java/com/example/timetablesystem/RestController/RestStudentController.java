@@ -1,6 +1,7 @@
 package com.example.timetablesystem.RestController;
 
 import com.example.timetablesystem.dto.FacultyDTO;
+import com.example.timetablesystem.dto.ModuleDTO;
 import com.example.timetablesystem.dto.SessionDTO;
 import com.example.timetablesystem.dto.StudentDTO;
 import com.example.timetablesystem.entities.*;
@@ -32,11 +33,19 @@ public class RestStudentController {
 
 
    @GetMapping("/getMyModules/{userId}")
-    public List<Module> getMyModules(@PathVariable(value = "userId")int userId){
+    public List<ModuleDTO> getMyModules(@PathVariable(value = "userId")int userId){
        User temp=userService.findUserById(userId);
        if(temp != null){
            List<Module> moduleList=temp.getStudent().getCourse().getModules().stream().collect(Collectors.toList());
-           return moduleList;
+           List<ModuleDTO> modules=new ArrayList<>();
+           for(Module m:moduleList){
+               ModuleDTO moduleDTO=new ModuleDTO();
+               moduleDTO.setModuleId(m.getModuleId());
+               moduleDTO.setModuleTitle(m.getModuleTitle());
+               moduleDTO.setModuleCredits(m.getModuleCredits());
+               modules.add(moduleDTO);
+           }
+           return modules;
        }
        return null;
    }

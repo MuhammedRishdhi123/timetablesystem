@@ -444,7 +444,7 @@ public class AdminController {
     }
 
     @PostMapping("/saveRoom")
-    public String saveRoom(@ModelAttribute("room") RoomRegistration room)
+    public String saveRoom(@ModelAttribute("room") RoomDTO room)
     {
         roomService.saveRoom(room);
         return "redirect:/admin/manageRooms?success";
@@ -458,9 +458,9 @@ public class AdminController {
     }
 
     @PostMapping("/saveModule")
-    public String saveModule(@ModelAttribute("Module") ModuleRegistration moduleRegistration)
+    public String saveModule(@ModelAttribute("Module") ModuleDTO moduleDTO)
     {
-        moduleService.saveModule(moduleRegistration);
+        moduleService.saveModule(moduleDTO);
         return "redirect:/admin/manageModules?success";
     }
 
@@ -483,15 +483,15 @@ public class AdminController {
     }
 
     @PostMapping("/saveLecturer")
-    public String saveLecturer(@ModelAttribute("lecturer") LecturerRegistration lecturerRegistration)
+    public String saveLecturer(@ModelAttribute("lecturer") LecturerDTO lecturerDTO)
     {
-        boolean emailExist=userService.checkEmail(lecturerRegistration.getEmail());
+        boolean emailExist=userService.checkEmail(lecturerDTO.getLecturerEmail());
         if(emailExist)
         {
             return "redirect:/admin/addLecturer?invalidEmail";
         }
         else if(!emailExist){
-            lecturerService.saveLecturer(lecturerRegistration);
+            lecturerService.saveLecturer(lecturerDTO);
             return "redirect:/admin/manageLecturers?success";
         }
         return null;

@@ -83,6 +83,11 @@ public class StudentServiceImp implements StudentService{
     }
 
     @Override
+    public Student findByStudentId(int studentId) {
+        return studentRepository.findByStudentId(studentId);
+    }
+
+    @Override
     public void delete(Student student) {
         studentRepository.delete(student);
     }

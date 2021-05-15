@@ -1,16 +1,12 @@
 package com.example.timetablesystem.service;
 
-import com.example.timetablesystem.dto.ModuleRegistration;
+import com.example.timetablesystem.dto.ModuleDTO;
 import com.example.timetablesystem.entities.Lecturer;
 import com.example.timetablesystem.entities.Module;
-import com.example.timetablesystem.entities.User;
 import com.example.timetablesystem.repository.ModuleRepository;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.model.IModel;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 @Service
@@ -18,11 +14,11 @@ public class ModuleServiceImpl implements ModuleService{
     @Autowired
     private ModuleRepository moduleRepository;
     @Override
-    public Module saveModule(ModuleRegistration moduleRegistration) {
+    public Module saveModule(ModuleDTO moduleDTO) {
         Module module=new Module();
-        module.setModuleCredits(moduleRegistration.getModuleCredits());
-        module.setModuleTitle(moduleRegistration.getModuleTitle());
-        module.setCourse(moduleRegistration.getCourse());
+        module.setModuleCredits(moduleDTO.getModuleCredits());
+        module.setModuleTitle(moduleDTO.getModuleTitle());
+        module.setCourse(moduleDTO.getCourse());
         moduleRepository.save(module);
         return module;
     }
@@ -72,5 +68,10 @@ public class ModuleServiceImpl implements ModuleService{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Module getModuleByTitle(String title) {
+        return moduleRepository.findByModuleTitle(title);
     }
 }

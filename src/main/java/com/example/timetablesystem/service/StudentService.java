@@ -10,5 +10,6 @@ public interface StudentService {
     public Student saveStudent(StudentDTO studentDTO);
     public List<Student> getAllStudents();
     public Student findByUserId(int userId);
+    public Student findByStudentId(int studentId);
     public void delete(Student student);
 }

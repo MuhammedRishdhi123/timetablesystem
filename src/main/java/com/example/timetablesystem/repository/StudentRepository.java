@@ -9,5 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentRepository extends JpaRepository<Student,Integer> {
     @Query("SELECT student from Student student where student.studentId= ?1")
+    Student findByStudentId(int studentId);
+
+    @Query("SELECT student from Student student where student.user.userId= ?1")
     Student findByUserId(int userId);
+
 }
