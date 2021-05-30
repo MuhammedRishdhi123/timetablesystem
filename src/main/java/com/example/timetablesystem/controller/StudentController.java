@@ -8,7 +8,6 @@ import com.example.timetablesystem.entities.User;
 import com.example.timetablesystem.service.SessionService;
 import com.example.timetablesystem.service.StudentService;
 import com.example.timetablesystem.service.UserService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,7 +52,7 @@ public class StudentController {
             model.addAttribute("sessions",sessionList);
             model.addAttribute("sessionBatchTitle",loggedUser.getStudent().getBatch().getBatchTitle());
         }
-        return "StudentHome";
+        return "studentHome";
     }
 
     @GetMapping("/myFaculty")
@@ -93,11 +92,11 @@ public class StudentController {
 
         boolean isExist=userService.checkEmail(studentDTO.getStudentEmail());
         if(isExist){
-            return "redirect:/user/registerStudent?invalidEmail";
+            return "redirect:/registerStudent?invalidEmail";
         }
         else if(!isExist){
             studentService.saveStudent(studentDTO);
-            return "redirect:/user/registerStudent?success";
+            return "redirect:/registerStudent?success";
 
         }
         return null;

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseRegistration {
+public class CourseDTO {
     private String courseTitle;
     private int courseDuration;
 }

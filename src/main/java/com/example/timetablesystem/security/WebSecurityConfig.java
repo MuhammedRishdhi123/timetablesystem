@@ -48,6 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http)throws Exception{
         http.authorizeRequests().antMatchers(
                 "/registerStudent",
+                "/index",
                 "/admin/addAdmin",
                 "/registerStudent?Success",
                 "/admin/addAdmin?Success",

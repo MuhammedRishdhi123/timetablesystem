@@ -1,6 +1,6 @@
 package com.example.timetablesystem.service;
 
-import com.example.timetablesystem.dto.BatchRegistration;
+import com.example.timetablesystem.dto.BatchDTO;
 import com.example.timetablesystem.entities.Batch;
 import com.example.timetablesystem.repository.BatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class BatchServiceImpl implements BatchService{
     private BatchRepository batchRepository;
 
     @Override
-    public Batch saveBatch(BatchRegistration batch) {
+    public Batch saveBatch(BatchDTO batch) {
         Batch newBatch=new Batch();
         newBatch.setBatchTitle(batch.getBatchTitle());
         batchRepository.save(newBatch);

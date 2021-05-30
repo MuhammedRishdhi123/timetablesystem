@@ -20,21 +20,11 @@
 <!--header-->
 <header class="main-header clearfix" role="header">
     <div class="logo">
-        <a href="#"><em>Protabler</em></a>
+        <a th:href="@{/index}"><em>Protabler</em></a>
     </div>
     <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
-            <li class="has-submenu"><a href="#section2">About Us</a>
-                <ul class="sub-menu">
-                    <li><a href="#section2">Who we are?</a></li>
-                    <li><a href="#section3">What we do?</a></li>
-                    <li><a href="#section3">How it works?</a></li>
-                </ul>
-            </li>
-
-            <li><a href="#section6">Contact</a></li>
-            <li><a href="#section6">Login</a></li>
 
         </ul>
     </nav>
@@ -64,6 +54,11 @@
                             Successfully logged out !
                         </div>
                     </div>
+                    <div th:if="${param.registerSuccess}">
+                        <div class="alert alert-primary" role="alert">
+                            Successfully account created. Now Login!
+                        </div>
+                    </div>
                     <form th:action="@{/login}" method="post" class="login-form">
                         <div class="form-group">
                             <input type="text" name="email" class="form-control rounded-left" placeholder="Email" required>
@@ -72,13 +67,7 @@
                             <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
                         </div>
                         <div class="form-group d-md-flex">
-                            <div class="w-50">
-                                <label class="checkbox-wrap checkbox-primary">Remember Me
-                                    <input type="checkbox" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="w-50 text-md-right">
+                            <div class="w-100 text-md-center">
                                 <a href="#">Forgot Password</a>
                             </div>
                         </div>

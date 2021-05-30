@@ -75,4 +75,9 @@ public class PageController {
         return "registerStudent";
     }
 
+    @GetMapping("/index")
+    public String index(){
+        return "index";
+    }
+
 }

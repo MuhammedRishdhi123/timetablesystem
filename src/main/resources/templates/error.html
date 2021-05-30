@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:font-size="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Login</title>
+    <title>Error</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,7 +20,7 @@
 <!--header-->
 <header class="main-header clearfix" role="header">
     <div class="logo">
-        <a href="#"><em>Protabler</em></a>
+        <a th:href="@{/index}"><em>Protabler</em></a>
     </div>
     <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
     <nav id="menu" class="main-nav" role="navigation">
@@ -34,17 +34,18 @@
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-5">
+            <div class="col-md-12 text-center mb-5">
                 <h2 class="heading-section">Error Page</h2>
+                <img th:src="@{/images/error.png}" alt="Error image"><br>
+                <a href='https://pngtree.com/so/internet-clipart' th:width="200px" th:height="200px">internet clipart png from pngtree.com</a>
+                <div><h4>Something went wrong please try again later !</h4></div>
             </div>
-            <hr>
-            <div><h4>Something went wrong please try again later !</h4></div>
         </div>
 
     </div>
 </section>
 
-<footer>
+<footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -56,9 +57,10 @@
     </div>
 </footer>
 
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/popper.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/main.js}"></script>
 
 </body>

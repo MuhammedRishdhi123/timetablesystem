@@ -151,7 +151,7 @@ Coded by www.creative-tim.com
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Manage Modules</h4>
+                            <h4 class="card-title"> Manage Rooms</h4>
                         </div>
                         <div th:if="${param.deleted}">
                             <div class="alert alert-danger" role="alert">
@@ -202,6 +202,9 @@ Coded by www.creative-tim.com
                                     </th>
                                     </thead>
                                     <tbody>
+                                    <tr th:if="${#lists.isEmpty(rooms)}">
+                                        <td colspan="6"> No rooms available </td>
+                                    </tr>
                                     <tr th:each="room : ${rooms}">
                                         <td th:text="${room.getRoomId()}"></td>
                                         <td th:text="${room.getRoomName()}"></td>
@@ -249,9 +252,10 @@ Coded by www.creative-tim.com
 </div>
 <!--</div>-->
 <!--   Core JS Files   -->
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/jquery/jquery.min.js}"></script>
 <script th:src="@{/js/popper.min.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/perfect-scrollbar.jquery.min.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
 <!-- Chart JS -->

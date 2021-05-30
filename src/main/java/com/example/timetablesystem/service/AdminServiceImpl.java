@@ -1,7 +1,7 @@
 package com.example.timetablesystem.service;
 
 
-import com.example.timetablesystem.dto.AdminRegistration;
+import com.example.timetablesystem.dto.AdminDTO;
 import com.example.timetablesystem.entities.Admin;
 import com.example.timetablesystem.entities.Role;
 import com.example.timetablesystem.entities.User;
@@ -11,7 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,13 +23,13 @@ public class AdminServiceImpl implements AdminService{
 
 
     @Override
-    public Admin saveAdmin(AdminRegistration adminRegistration) {
+    public Admin saveAdmin(AdminDTO adminDTO) {
         Admin admin=new Admin();
         User user=new User();
-        user.setName(adminRegistration.getName());
-        user.setPassword(encoder.encode(adminRegistration.getPassword()));
-        user.setPhone(adminRegistration.getPhone());
-        user.setEmail(adminRegistration.getEmail());
+        user.setName(adminDTO.getName());
+        user.setPassword(encoder.encode(adminDTO.getPassword()));
+        user.setPhone(adminDTO.getPhone());
+        user.setEmail(adminDTO.getEmail());
         user.setRoles(Stream.of(new Role("Admin")).collect(Collectors.toSet()));
 
         admin.setUser(user);

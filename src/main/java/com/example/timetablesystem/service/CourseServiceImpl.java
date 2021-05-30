@@ -1,20 +1,19 @@
 package com.example.timetablesystem.service;
 
-import com.example.timetablesystem.dto.CourseRegistration;
+import com.example.timetablesystem.dto.CourseDTO;
 import com.example.timetablesystem.entities.Course;
 import com.example.timetablesystem.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CourseServiceImpl implements CourseService{
     @Autowired
     private CourseRepository courseRepository;
     @Override
-    public Course saveCourse(CourseRegistration course) {
+    public Course saveCourse(CourseDTO course) {
         Course newcourse=new Course();
         newcourse.setCourseTitle(course.getCourseTitle());
         newcourse.setCourseDuration(course.getCourseDuration());

@@ -192,6 +192,9 @@ Coded by www.creative-tim.com
                                         </th>
                                         </thead>
                                         <tbody>
+                                        <tr th:if="${#lists.isEmpty(lecturers)}">
+                                            <td colspan="6"> No lecturers available </td>
+                                        </tr>
                                         <tr th:each="lecturer : ${lecturers}">
                                             <td th:text="${lecturer.getLecturerId()}"></td>
                                             <td th:text="${lecturer.getUser().getName()}"></td>
@@ -236,9 +239,10 @@ Coded by www.creative-tim.com
     </div>
 </div>
 <!--   Core JS Files   -->
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/jquery/jquery.min.js}"></script>
 <script th:src="@{/js/popper.min.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/perfect-scrollbar.jquery.min.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
 <!-- Chart JS -->

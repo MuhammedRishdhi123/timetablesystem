@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BatchRegistration {
+public class BatchDTO {
     private String batchTitle;
 }

@@ -48,7 +48,7 @@ public class AdminController {
         model.addAttribute("lecturers",lecturerService.getAllLecturer().size());
         model.addAttribute("batches",batchService.getAllBatches().size());
         model.addAttribute("courses",courseService.getAllCourses().size());
-        return "AdminHome";
+        return "adminHome";
     }
 
 
@@ -437,7 +437,7 @@ public class AdminController {
 
 
     @PostMapping("/saveCourse")
-    public String saveCourse(@ModelAttribute("course") CourseRegistration course)
+    public String saveCourse(@ModelAttribute("course") CourseDTO course)
     {
         courseService.saveCourse(course);
         return "redirect:/admin/manageCourses?success";
@@ -451,7 +451,7 @@ public class AdminController {
     }
 
     @PostMapping("/saveBatch")
-    public String saveBatch(@ModelAttribute("batch") BatchRegistration batch)
+    public String saveBatch(@ModelAttribute("batch") BatchDTO batch)
     {
         batchService.saveBatch(batch);
         return "redirect:/admin/manageBatches?success";
@@ -505,15 +505,15 @@ public class AdminController {
     }
 
     @PostMapping("/saveAdmin")
-    public String saveAdmin(@ModelAttribute("Admin")AdminRegistration adminRegistration)
+    public String saveAdmin(@ModelAttribute("Admin") AdminDTO adminDTO)
     {
-        boolean emailExist=userService.checkEmail(adminRegistration.getEmail());
+        boolean emailExist=userService.checkEmail(adminDTO.getEmail());
         if(emailExist)
         {
             return "redirect:/admin/addAdmin?invalidEmail";
         }
         else if(!emailExist){
-            adminService.saveAdmin(adminRegistration);
+            adminService.saveAdmin(adminDTO);
             return "redirect:/admin/addAdmin?success";
         }
         return null;

@@ -24,7 +24,7 @@
 <!--header-->
 <header class="main-header clearfix" role="header">
     <div class="logo">
-        <a href="#"><em>Protabler</em></a>
+        <a th:href="@{/index}"><em>Protabler</em></a>
     </div>
     <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
     <nav id="menu" class="main-nav" role="navigation">
@@ -38,15 +38,13 @@
                 </ul>
             </li>
 
-            <li><a href="#section6">Contact</a></li>
-            <li><img th:src="@{/images/usericon.png}" id="profileImg1" class="rounded-circle" height="50" width="50"></li>
-            <li><span sec:authentication="principal.name"></span></li>
+            <li class="text-center"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" id="profileImg1" class="rounded-circle" height="50" width="50"></li>
+            <li class="text-center"><span sec:authentication="principal.name"></span></li>
             <li class="has-submenu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false"></a>
                 <ul class="sub-menu">
 
                     <li class=""><a th:href="@{/user/profile}">Profile</a></li>
-                    <li><a href="/team">Help</a></li>
                     <li><a th:href="@{/logout}" >Logout</a></li>
 
                 </ul>
@@ -78,6 +76,9 @@
                     </thead>
                     <tbody>
 
+                    <tr th:if="${#lists.isEmpty(sessions)}">
+                        <td colspan="7"> No sessions available </td>
+                    </tr>
 
                     <tr th:each="s:${sessions}">
 
@@ -129,7 +130,7 @@
     </div>
 </section>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -140,10 +141,16 @@
             </div>
         </div>
     </footer>
-<script th:src="@{/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/jquery.min.js}"></script>
-<script th:src="@{/js/popper.js}"></script>
-<script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/jquery/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/isotope.min.js}"></script>
+    <script th:src="@{/js/owl-carousel.js}"></script>
+    <script th:src="@{/js/lightbox.js}"></script>
+    <script th:src="@{/js/tabs.js}"></script>
+    <script th:src="@{/js/video.js}"></script>
+    <script th:src="@{/js/slick-slider.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
 </div>
 </body>
 </html>

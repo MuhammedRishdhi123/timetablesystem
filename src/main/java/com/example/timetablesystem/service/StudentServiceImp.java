@@ -61,7 +61,7 @@ public class StudentServiceImp implements StudentService{
             messageHelper.setFrom("noreply@protabler.com");
             messageHelper.setTo(user.getEmail());
             messageHelper.setSubject(MESSAGE_SUBJECT);
-            messageHelper.setText(templateEngine.process("SuccessEmail",context));
+            messageHelper.setText(templateEngine.process("SuccessEmail",context),true);
         };
         try {
             mailSender.send(messagePreparator);

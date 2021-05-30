@@ -44,7 +44,7 @@ public class LecturerController {
             model.addAttribute("sessions",sessionList);
             model.addAttribute("lecturerName",loggedUser.getName());
         }
-        return "LecturerHome";
+        return "lecturerHome";
     }
 
 

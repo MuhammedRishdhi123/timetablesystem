@@ -40,7 +40,7 @@ https://templatemo.com/tm-557-grad-school
     <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
     <nav id="menu" class="main-nav" role="navigation">
       <ul class="main-menu">
-        <li><a href="#section1">Home</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="external" th:href="@{/}">Home</a></li>
         <li class="has-submenu"><a href="#section2">About Us</a>
           <ul class="sub-menu">
             <li><a href="#section2">Who we are?</a></li>
@@ -50,7 +50,7 @@ https://templatemo.com/tm-557-grad-school
         </li>
 
         <li><a href="#section6">Contact</a></li>
-        <li><a href="#section6">Login</a></li>
+        <li sec:authorize="isAnonymous()"><a class="external" th:href="@{/login}">Login</a></li>
 
       </ul>
     </nav>
@@ -65,7 +65,7 @@ https://templatemo.com/tm-557-grad-school
       <div class="video-overlay header-text">
           <div class="caption">
               <h6>Timetable Management System</h6>
-              <h2><em>Your</em> timetable</h2>
+              <h2><em>Your</em> timetable management system</h2>
               <div class="main-button">
                   <div class="scroll-to-section"><a href="#section2">Discover more</a></div>
               </div>
@@ -74,55 +74,6 @@ https://templatemo.com/tm-557-grad-school
   </section>
   <!-- ***** Main Banner Area End ***** -->
 
-
-  <section class="features">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-12">
-          <div class="features-post">
-            <div class="features-content">
-              <div class="content-show">
-                <h4><i class="fa fa-pencil"></i>All Courses</h4>
-              </div>
-              <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section2">More Info.</a></div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="features-post second-features">
-            <div class="features-content">
-              <div class="content-show">
-                <h4><i class="fa fa-graduation-cap"></i>Virtual Class</h4>
-              </div>
-              <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section3">Details</a></div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-12">
-          <div class="features-post third-features">
-            <div class="features-content">
-              <div class="content-show">
-                <h4><i class="fa fa-book"></i>Real Meeting</h4>
-              </div>
-              <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section4">Read More</a></div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="section why-us" data-section="section2">
     <div class="container">
@@ -220,37 +171,7 @@ https://templatemo.com/tm-557-grad-school
             <h2>Let’s Keep In Touch</h2>
           </div>
         </div>
-        <div class="col-md-6">
-        
-        <!-- Do you need a working HTML contact-form script?
-                	
-                    Please visit https://templatemo.com/contact page -->
-                    
-          <form id="contact" action="" method="post">
-            <div class="row">
-              <div class="col-md-6">
-                  <fieldset>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
-                  </fieldset>
-                </div>
-                <div class="col-md-6">
-                  <fieldset>
-                    <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" required="">
-                  </fieldset>
-                </div>
-              <div class="col-md-12">
-                <fieldset>
-                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                </fieldset>
-              </div>
-              <div class="col-md-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="button">Send Message Now</button>
-                </fieldset>
-              </div>
-            </div>
-          </form>
-        </div>
+
         <div class="col-md-6">
           <div id="map">
             <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="422px" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -274,9 +195,9 @@ https://templatemo.com/tm-557-grad-school
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-    <script th:src="@{/jquery/jquery.min.js}"></script>
-    <script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <script th:src="@{/jquery/jquery.min.js}"></script>
     <script th:src="@{/js/isotope.min.js}"></script>
     <script th:src="@{/js/owl-carousel.js}"></script>
     <script th:src="@{/js/lightbox.js}"></script>
